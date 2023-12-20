@@ -38,5 +38,35 @@ namespace Resources.Scripts.Heroes
             _textType = _heroSettings.GetClassName(_nameHero);
             _classIcon = _heroSettings.GetIconClass(_nameHero);
         }
+
+        public float GetHealth()
+        {
+            return _health;
+        }
+        
+        public float GetAttack()
+        {
+            return _attack;
+        }
+        
+        public float GetDefense()
+        {
+            return _defense;
+        }
+        
+        public float GetSpeed()
+        {
+            return _speed;
+        }
+
+        public string GetTextTypeHero()
+        {
+            return _textType;
+        }
+
+        public Sprite GetClassIcon()
+        {
+            return _classIcon;
+        }
     }
 }

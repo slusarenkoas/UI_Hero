@@ -810,7 +810,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157834030
 MonoBehaviour:
@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.461
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1583,7 +1583,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 438316628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 799322333}
+        m_TargetAssemblyTypeName: Resources.Scripts.Views.HeroSelectionLobbyViewController,
+          Assembly-CSharp
+        m_MethodName: ViewPreviousHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &438316628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,8 +1756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &535323304
 GameObject:
@@ -1859,7 +1872,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535932283
 MonoBehaviour:
@@ -2392,7 +2405,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.461
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2539,7 +2552,6 @@ GameObject:
   m_Component:
   - component: {fileID: 799322332}
   - component: {fileID: 799322333}
-  - component: {fileID: 799322334}
   m_Layer: 5
   m_Name: HeroSelectionLobby
   m_TagString: Untagged
@@ -2587,18 +2599,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gold: {fileID: 3166221210556952567}
   _diamond: {fileID: 2936008197460073013}
---- !u!114 &799322334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799322331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419733d760b0fef4dbbdaf5279e53224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _healthValueViewOnStatsScreen: {fileID: 3423547225785099630}
+  _attackValueViewOnStatsScreen: {fileID: 662209262}
+  _defenseValueViewOnStatsScreen: {fileID: 1254103693}
+  _speedValueViewOnStatsScreen: {fileID: 300863593}
+  _iconTypeHero: {fileID: 264764963}
+  _textTypeInfoHero: {fileID: 646294662}
 --- !u!224 &810657677 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7371093402653735327, guid: d50cf04373ab4ec46ad034b070b91cc8, type: 3}
@@ -3037,7 +3043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
       propertyPath: m_TagString
@@ -3418,8 +3424,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1032340013
 GameObject:
@@ -4454,7 +4460,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.461
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5524,7 +5530,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528308854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 799322333}
+        m_TargetAssemblyTypeName: Resources.Scripts.Views.HeroSelectionLobbyViewController,
+          Assembly-CSharp
+        m_MethodName: ViewNextHero
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1528308854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5936,7 +5955,7 @@ GameObject:
   - component: {fileID: 1620634602}
   - component: {fileID: 1620634601}
   m_Layer: 5
-  m_Name: Health
+  m_Name: textAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6461,10 +6480,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2086988893}
   - {fileID: 780640779}
   - {fileID: 326366718}
   - {fileID: 148169430}
-  - {fileID: 2086988893}
   - {fileID: 1597684770}
   - {fileID: 1849219160}
   m_Father: {fileID: 0}
@@ -6482,12 +6501,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroes:
+  - {fileID: 2086988895}
   - {fileID: 1255071532}
   - {fileID: 1271319601}
   - {fileID: 1484003693}
-  - {fileID: 2086988895}
   - {fileID: 1597684772}
   - {fileID: 1849219162}
+  _heroSelectionLobby: {fileID: 0}
 --- !u!1001 &1953760229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6954,8 +6974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2053469964
 GameObject:
@@ -8446,7 +8466,7 @@ GameObject:
   - component: {fileID: 2470669011082948858}
   - component: {fileID: 6231260479445758622}
   m_Layer: 5
-  m_Name: Health
+  m_Name: textHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8647,8 +8667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3251825434908267073
 MonoBehaviour:
@@ -10615,7 +10635,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7430499095498247962
 GameObject:

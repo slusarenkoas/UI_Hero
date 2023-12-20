@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Resources.Scripts
+namespace Resources.Scripts.Heroes
 {
     [Serializable]
     public class HeroSettings : MonoBehaviour
@@ -40,8 +41,8 @@ namespace Resources.Scripts
         {
             return nameHero switch
             {
-                GlobalConst.BOW_HERO => "Bow Hero",
                 GlobalConst.NO_WEAPON => "No Weapon Hero",
+                GlobalConst.BOW_HERO => "Bow Hero",
                 GlobalConst.MAGIC_WAND => "Magic Wand Hero",
                 GlobalConst.DOUBLE_SWORD => "Double Sword Hero",
                 GlobalConst.SWORD_SHIELD => "Sword Shield Hero",
@@ -54,8 +55,8 @@ namespace Resources.Scripts
         {
             return nameHero switch
             {
-                GlobalConst.BOW_HERO => _speed * _highMultiplier,
                 GlobalConst.NO_WEAPON => _speed * _lowMultiplier,
+                GlobalConst.BOW_HERO => _speed * _highMultiplier,
                 GlobalConst.MAGIC_WAND => _speed * _lowMultiplier,
                 GlobalConst.DOUBLE_SWORD => _speed * _highMultiplier,
                 GlobalConst.SWORD_SHIELD => _speed * _lowMultiplier,
@@ -68,8 +69,8 @@ namespace Resources.Scripts
         {
             return nameHero switch
             {
+                GlobalConst.NO_WEAPON => _defense * _lowMultiplier,
                 GlobalConst.BOW_HERO => _defense * _lowMultiplier,
-                GlobalConst.NO_WEAPON => _defense * _mediumMultiplier,
                 GlobalConst.MAGIC_WAND => _defense * _lowMultiplier,
                 GlobalConst.DOUBLE_SWORD => _defense * _lowMultiplier,
                 GlobalConst.SWORD_SHIELD => _defense * _highMultiplier,
@@ -82,8 +83,8 @@ namespace Resources.Scripts
         {
             return nameHero switch
             {
-                GlobalConst.BOW_HERO => _attack * _highMultiplier,
                 GlobalConst.NO_WEAPON => _attack * _lowMultiplier,
+                GlobalConst.BOW_HERO => _attack * _highMultiplier,
                 GlobalConst.MAGIC_WAND => _attack * _highMultiplier,
                 GlobalConst.DOUBLE_SWORD => _attack * _mediumMultiplier,
                 GlobalConst.SWORD_SHIELD => _attack * _lowMultiplier,
@@ -96,8 +97,8 @@ namespace Resources.Scripts
         {
             return nameHero switch
             {
+                GlobalConst.NO_WEAPON => _health * _lowMultiplier,
                 GlobalConst.BOW_HERO => _health * _lowMultiplier,
-                GlobalConst.NO_WEAPON => _health * _mediumMultiplier,
                 GlobalConst.MAGIC_WAND => _health * _lowMultiplier,
                 GlobalConst.DOUBLE_SWORD => _health * _mediumMultiplier,
                 GlobalConst.SWORD_SHIELD => _health * _highMultiplier,
