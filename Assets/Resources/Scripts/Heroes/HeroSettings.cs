@@ -19,7 +19,16 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private float _lowMultiplier = 0.3f;
         [SerializeField] private float _mediumMultiplier = 0.6f;
         [SerializeField] private float _highMultiplier = 1f;
-
+        
+        public enum PriceForHero
+        {
+            BowHero = 1000,
+            MagicWand = 2000,
+            DoubleSword = 3000,
+            SwordShield = 4000,
+            TwoHandsSword = 5000
+        }
+        
         public Sprite GetIconClass(string nameHero)
         {
             switch (nameHero)
@@ -104,6 +113,28 @@ namespace Resources.Scripts.Heroes
                 GlobalConst.SWORD_SHIELD => _health * _highMultiplier,
                 GlobalConst.TWO_HANDS_SWORD => _health * _mediumMultiplier,
                 _ => 0
+            };
+        }
+
+        public int GetPriceForHero(string nameHero)
+        {
+            return nameHero switch
+            {
+                GlobalConst.BOW_HERO => (int)PriceForHero.BowHero,
+                GlobalConst.MAGIC_WAND => (int)PriceForHero.MagicWand,
+                GlobalConst.DOUBLE_SWORD => (int)PriceForHero.DoubleSword,
+                GlobalConst.SWORD_SHIELD => (int)PriceForHero.SwordShield,
+                GlobalConst.TWO_HANDS_SWORD => (int)PriceForHero.TwoHandsSword,
+                _ => 0
+            };
+        }
+
+        public bool GetHeroActivatedInformation(string nameHero)
+        {
+            return nameHero switch
+            {
+                GlobalConst.NO_WEAPON => true,
+                _ => false
             };
         }
     }

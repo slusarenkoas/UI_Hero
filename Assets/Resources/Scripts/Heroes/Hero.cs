@@ -6,18 +6,14 @@ namespace Resources.Scripts.Heroes
 {
     public class Hero : MonoBehaviour
     {
-        [SerializeField]
-        private float _health;
-        [SerializeField]
-        private float _attack;
-        [SerializeField]
-        private float _defense;
-        [SerializeField]
-        private float _speed;
-        [SerializeField]
-        private string _textType;
-        [SerializeField]
-        private Sprite _classIcon;
+        [SerializeField] private float _health;
+        [SerializeField] private float _attack;
+        [SerializeField] private float _defense;
+        [SerializeField] private float _speed;
+        [SerializeField] private string _textType;
+        [SerializeField] private Sprite _classIcon;
+        [SerializeField] private int _price;
+        public bool IsHeroBought { get; set; }
         
         private string _nameHero;
         private HeroSettings _heroSettings;
@@ -37,6 +33,8 @@ namespace Resources.Scripts.Heroes
             _speed = _heroSettings.GetSpeedHero(_nameHero);
             _textType = _heroSettings.GetClassName(_nameHero);
             _classIcon = _heroSettings.GetIconClass(_nameHero);
+            _price = _heroSettings.GetPriceForHero(_nameHero);
+            IsHeroBought = _heroSettings.GetHeroActivatedInformation(_nameHero);
         }
 
         public float GetHealth()
@@ -67,6 +65,11 @@ namespace Resources.Scripts.Heroes
         public Sprite GetClassIcon()
         {
             return _classIcon;
+        }
+        
+        public int GetPriceForHero()
+        {
+            return _price;
         }
     }
 }

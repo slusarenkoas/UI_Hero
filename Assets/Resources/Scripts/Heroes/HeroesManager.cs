@@ -10,8 +10,10 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private HeroSelectionLobbyViewController _heroSelectionLobby;
         
         private HeroSettings _heroSettings;
-        public Hero CurrentHero {get; private set;}
-        private int _indexCurrentHero = 0;
+        private int _indexChosenHero;
+        
+        public Hero ChosenHero {get; private set;}
+        public Hero CurrentGameHero { get; private set; }
 
         public void Initialize (HeroSettings heroSettings)
         {
@@ -21,34 +23,73 @@ namespace Resources.Scripts.Heroes
             {
                 hero.Initialize(_heroSettings);
             }
+
+            if (_heroes == null) return;
+            ChosenHero =_heroes[0];
             
-            if (_heroes != null) CurrentHero =_heroes[0];
+            CurrentGameHero = ChosenHero;
+
+            _heroSelectionLobby.ExitFromSelectionLobbyController += ReturnCurrentGameHero;
+            _heroSelectionLobby.SelectNewHeroOnLobbyController += SetNewGameHero;
+            _heroSelectionLobby.CurrentHeroBought += SetHeroFlagIsBought;
         }
 
-        public void SetNextHero()
+        private void SetHeroFlagIsBought()
         {
-            _indexCurrentHero++;
-            
-            if (_indexCurrentHero == _heroes.Length)
-            {
-                _indexCurrentHero = 0;
-                CurrentHero = _heroes[_indexCurrentHero];
-                return;
-            }
-            CurrentHero = _heroes[_indexCurrentHero];
+            ChosenHero.IsHeroBought = true;
         }
 
-        public void SetPreviousHero()
+        private void OnDestroy()
         {
-            _indexCurrentHero--;
-            
-            if (_indexCurrentHero < 0)
+            _heroSelectionLobby.ExitFromSelectionLobbyController -= ReturnCurrentGameHero;
+            _heroSelectionLobby.SelectNewHeroOnLobbyController -= SetNewGameHero;
+            _heroSelectionLobby.CurrentHeroBought -= SetHeroFlagIsBought;
+        }
+
+        private void SetNewGameHero()
+        {
+            CurrentGameHero = ChosenHero;
+        }
+
+        private void ReturnCurrentGameHero()
+        {
+            ChosenHero = CurrentGameHero;
+
+            for (var index = 0; index < _heroes.Length; index++)
             {
-                _indexCurrentHero = _heroes.Length - 1;
-                CurrentHero = _heroes[_indexCurrentHero];
+                var hero = _heroes[index];
+                if (hero.name != CurrentGameHero.name) continue;
+                _indexChosenHero = index;
                 return;
             }
-            CurrentHero = _heroes[_indexCurrentHero];
+        }
+
+        public void ReturnNextHero()
+        {
+            _indexChosenHero++;
+            
+            if (_indexChosenHero == _heroes.Length)
+            {
+                _indexChosenHero = 0;
+                ChosenHero = _heroes[_indexChosenHero];
+                return;
+            }
+            
+            ChosenHero = _heroes[_indexChosenHero];
+        }
+
+        public void ReturnPreviousHero()
+        {
+            _indexChosenHero--;
+            
+            if (_indexChosenHero < 0)
+            {
+                _indexChosenHero = _heroes.Length - 1;
+                ChosenHero = _heroes[_indexChosenHero];
+                return;
+            }
+            
+            ChosenHero = _heroes[_indexChosenHero];
         }
     }
 }
