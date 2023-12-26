@@ -1,4 +1,3 @@
-using System;
 using Resources.Scripts.Currency;
 using Resources.Scripts.Heroes;
 using TMPro;
@@ -6,10 +5,9 @@ using UnityEngine;
 
 namespace Resources.Scripts.Views
 {
-    public class StartMenuViewController : MonoBehaviour
+    public class ViewStartMenu : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _gold;
-        [SerializeField] private TextMeshProUGUI _diamond;
+        [SerializeField] private TextMeshProUGUI _textHeroName;
 
         private HeroesManager _heroesManager;
         private CurrencyManager _currencyManager;
@@ -24,18 +22,17 @@ namespace Resources.Scripts.Views
 
         private void OnEnable()
         {
-            _viewLobbyController.StartMenuOpen += SetCurrencyValue;
+            _viewLobbyController.StartMenuScreenOpened += ShowOnStartMenuScreenElements;
         }
 
         private void OnDisable()
         {
-            _viewLobbyController.StartMenuOpen -= SetCurrencyValue;
+            _viewLobbyController.StartMenuScreenOpened -= ShowOnStartMenuScreenElements;
         }
 
-        private void SetCurrencyValue()
+        private void ShowOnStartMenuScreenElements()
         {
-            _gold.text = _currencyManager.GetValueGold().ToString();
-            _diamond.text = _currencyManager.GetValueDiamond().ToString();
+            _textHeroName.text = _heroesManager.ActiveHero.PlayerName;
         }
     }
 }

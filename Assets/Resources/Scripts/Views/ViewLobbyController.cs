@@ -2,52 +2,39 @@ using System;
 using Resources.Scripts.Currency;
 using Resources.Scripts.Heroes;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Resources.Scripts.Views
 {
     public class ViewLobbyController : MonoBehaviour
     {
-        [SerializeField] private StartMenuViewController _startMenu;
-        [SerializeField] private HeroSelectionLobbyViewController _heroSelectionLobby;
+        [SerializeField] private ViewStartMenu _viewStartMenu;
+        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
 
-        private HeroesManager _heroesManager;
-        private CurrencyManager _currencyManager;
-        
-        public event Action StartMenuOpen;
-        public event Action HeroSelectionLobbyOpen;
+        public event Action StartMenuScreenOpened;
+        public event Action HeroSelectionLobbyScreenOpened;
 
         public void Initialize(HeroesManager heroesManager, CurrencyManager currencyManager)
         {
-            _heroesManager = heroesManager;
-            _currencyManager = currencyManager;
-
-            _startMenu.Initialize(heroesManager, currencyManager,this);
-            _heroSelectionLobby.Initialize(heroesManager, currencyManager,this);
+            _viewStartMenu.Initialize(heroesManager, currencyManager,this);
+            _viewHeroSelectionLobby.Initialize(heroesManager, currencyManager,this);
             
-            EnableStartMenu();
+            ShowStartMenu();
         }
         
-        public void EnableStartMenu()
+        public void ShowStartMenu()
         {
-            _heroSelectionLobby.gameObject.SetActive(false);
-            _startMenu.gameObject.SetActive(true);
+            _viewHeroSelectionLobby.gameObject.SetActive(false);
+            _viewStartMenu.gameObject.SetActive(true);
             
-            StartMenuOpen?.Invoke();
+            StartMenuScreenOpened?.Invoke();
         }
 
-        public void EnableHeroSelectionLobby()
+        public void ShowHeroSelectionLobby()
         {
-            _startMenu.gameObject.SetActive(false);
-            _heroSelectionLobby.gameObject.SetActive(true);
+            _viewStartMenu.gameObject.SetActive(false);
+            _viewHeroSelectionLobby.gameObject.SetActive(true);
             
-            HeroSelectionLobbyOpen?.Invoke();    
-        }
-
-        private void CloseAllMenu()
-        {
-            _startMenu.gameObject.SetActive(false);
-            _heroSelectionLobby.gameObject.SetActive(false);
+            HeroSelectionLobbyScreenOpened?.Invoke();    
         }
     }
 }

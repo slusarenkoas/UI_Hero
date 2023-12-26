@@ -1,4 +1,3 @@
-using System;
 using Resources.Scripts.Views;
 using UnityEngine;
 
@@ -7,13 +6,13 @@ namespace Resources.Scripts.Heroes
     public class HeroesManager : MonoBehaviour
     {
         [SerializeField] private Hero[] _heroes;
-        [SerializeField] private HeroSelectionLobbyViewController _heroSelectionLobby;
+        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
         
         private HeroSettings _heroSettings;
         private int _indexChosenHero;
         
-        public Hero ChosenHero {get; private set;}
-        public Hero CurrentGameHero { get; private set; }
+        public Hero CurrentHeroInSelectionLobby {get; private set;}
+        public Hero ActiveHero { get; private set; }
 
         public void Initialize (HeroSettings heroSettings)
         {
@@ -25,71 +24,55 @@ namespace Resources.Scripts.Heroes
             }
 
             if (_heroes == null) return;
-            ChosenHero =_heroes[0];
+            CurrentHeroInSelectionLobby =_heroes[0];
             
-            CurrentGameHero = ChosenHero;
+            ActiveHero = CurrentHeroInSelectionLobby;
 
-            _heroSelectionLobby.ExitFromSelectionLobbyController += ReturnCurrentGameHero;
-            _heroSelectionLobby.SelectNewHeroOnLobbyController += SetNewGameHero;
-            _heroSelectionLobby.CurrentHeroBought += SetHeroFlagIsBought;
+            _viewHeroSelectionLobby.ExitFromSelectionLobbyController += ReturnCurrentGameViewHero;
+            _viewHeroSelectionLobby.SelectNewHeroOnLobbyController += SetNewGameViewHero;
+            _viewHeroSelectionLobby.CurrentHeroBought += SetViewHeroFlagIsBought;
         }
 
-        private void SetHeroFlagIsBought()
+        private void SetViewHeroFlagIsBought()
         {
-            ChosenHero.IsHeroBought = true;
+            CurrentHeroInSelectionLobby.IsHeroBought = true;
+        }
+        
+        private void SetNewGameViewHero()
+        {
+            ActiveHero = CurrentHeroInSelectionLobby;
         }
 
-        private void OnDestroy()
+        private void ReturnCurrentGameViewHero()
         {
-            _heroSelectionLobby.ExitFromSelectionLobbyController -= ReturnCurrentGameHero;
-            _heroSelectionLobby.SelectNewHeroOnLobbyController -= SetNewGameHero;
-            _heroSelectionLobby.CurrentHeroBought -= SetHeroFlagIsBought;
-        }
-
-        private void SetNewGameHero()
-        {
-            CurrentGameHero = ChosenHero;
-        }
-
-        private void ReturnCurrentGameHero()
-        {
-            ChosenHero = CurrentGameHero;
+            CurrentHeroInSelectionLobby = ActiveHero;
 
             for (var index = 0; index < _heroes.Length; index++)
             {
                 var hero = _heroes[index];
-                if (hero.name != CurrentGameHero.name) continue;
+                if (hero.name != ActiveHero.name) continue;
                 _indexChosenHero = index;
                 return;
             }
         }
-
+       
         public void ReturnNextHero()
         {
-            _indexChosenHero++;
-            
-            if (_indexChosenHero == _heroes.Length)
-            {
-                _indexChosenHero = 0;
-                ChosenHero = _heroes[_indexChosenHero];
-                return;
-            }
-            
-            ChosenHero = _heroes[_indexChosenHero];
+            _indexChosenHero = (_indexChosenHero + 1) % _heroes.Length;
+            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
         }
 
         public void ReturnPreviousHero()
         {
-            _indexChosenHero--;
-            
-            if (_indexChosenHero < 0)
-            {
-                _indexChosenHero = _heroes.Length - 1;
-                ChosenHero = _heroes[_indexChosenHero];
-                return;
-            }
-            
-            ChosenHero = _heroes[_indexChosenHero];
+            _indexChosenHero = (_indexChosenHero - 1 + _heroes.Length) % _heroes.Length;
+            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
+        }
+        
+        private void OnDestroy()
+        {
+            _viewHeroSelectionLobby.ExitFromSelectionLobbyController -= ReturnCurrentGameViewHero;
+            _viewHeroSelectionLobby.SelectNewHeroOnLobbyController -= SetNewGameViewHero;
+            _viewHeroSelectionLobby.CurrentHeroBought -= SetViewHeroFlagIsBought;
         }
     }
 }

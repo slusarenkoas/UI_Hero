@@ -1,75 +1,38 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace Resources.Scripts.Heroes
 {
     public class Hero : MonoBehaviour
     {
-        [SerializeField] private float _health;
-        [SerializeField] private float _attack;
-        [SerializeField] private float _defense;
-        [SerializeField] private float _speed;
-        [SerializeField] private string _textType;
-        [SerializeField] private Sprite _classIcon;
-        [SerializeField] private int _price;
+        [field:SerializeField] public float Health { get; private set; }
+        [field:SerializeField] public float Attack { get; private set; }
+        [field:SerializeField] public float Defense { get; private set; }
+        [field:SerializeField] public float Speed { get; private set; }
+        [field:SerializeField] public string ClassType { get; private set; }
+        [field:SerializeField] public Sprite ClassIcon { get; private set; }
+        [field:SerializeField] public int HeroPrice { get; private set; }
+        [field:SerializeField] public string PlayerName { get; private set; }
         public bool IsHeroBought { get; set; }
         
-        private string _nameHero;
         private HeroSettings _heroSettings;
 
         public void Initialize(HeroSettings heroSettings)
         {
             _heroSettings = heroSettings;
-            _nameHero = gameObject.name;
-            GetHeroSetting();
+            GetHeroSetting(name);
         }
 
-        private void GetHeroSetting()
+        private void GetHeroSetting(string heroName)
         {
-            _health = _heroSettings.GetHealthHero(_nameHero);
-            _attack = _heroSettings.GetAttackHero(_nameHero);
-            _defense = _heroSettings.GetDefenseHero(_nameHero);
-            _speed = _heroSettings.GetSpeedHero(_nameHero);
-            _textType = _heroSettings.GetClassName(_nameHero);
-            _classIcon = _heroSettings.GetIconClass(_nameHero);
-            _price = _heroSettings.GetPriceForHero(_nameHero);
-            IsHeroBought = _heroSettings.GetHeroActivatedInformation(_nameHero);
-        }
-
-        public float GetHealth()
-        {
-            return _health;
-        }
-        
-        public float GetAttack()
-        {
-            return _attack;
-        }
-        
-        public float GetDefense()
-        {
-            return _defense;
-        }
-        
-        public float GetSpeed()
-        {
-            return _speed;
-        }
-
-        public string GetTextTypeHero()
-        {
-            return _textType;
-        }
-
-        public Sprite GetClassIcon()
-        {
-            return _classIcon;
-        }
-        
-        public int GetPriceForHero()
-        {
-            return _price;
+            Health = _heroSettings.GetHeroHealth(heroName);
+            Attack = _heroSettings.GetHeroAttack(heroName);
+            Defense = _heroSettings.GetHeroDefense(heroName);
+            Speed = _heroSettings.GetHeroSpeed(heroName);
+            ClassType = _heroSettings.GetClassName(heroName);
+            ClassIcon = _heroSettings.GetClassIcon(heroName);
+            HeroPrice = _heroSettings.GetHeroPrice(heroName);
+            IsHeroBought = _heroSettings.GetHeroActivatedInformation(heroName);
+            PlayerName = _heroSettings.GetPlayerName(heroName);
         }
     }
 }

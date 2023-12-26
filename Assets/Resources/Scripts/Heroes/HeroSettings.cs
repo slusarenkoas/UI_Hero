@@ -1,12 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Resources.Scripts.Heroes
 {
-    [Serializable]
     public class HeroSettings : MonoBehaviour
     {
+        
         private float _health = 100f;
         private float _attack = 100f;
         private float _defense = 100f;
@@ -19,8 +17,8 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private float _lowMultiplier = 0.3f;
         [SerializeField] private float _mediumMultiplier = 0.6f;
         [SerializeField] private float _highMultiplier = 1f;
-        
-        public enum PriceForHero
+
+        private enum PriceForHero
         {
             BowHero = 1000,
             MagicWand = 2000,
@@ -29,9 +27,9 @@ namespace Resources.Scripts.Heroes
             TwoHandsSword = 5000
         }
         
-        public Sprite GetIconClass(string nameHero)
+        public Sprite GetClassIcon(string heroName)
         {
-            switch (nameHero)
+            switch (heroName)
             {
                 case GlobalConst.BOW_HERO:
                 case GlobalConst.MAGIC_WAND:
@@ -46,9 +44,9 @@ namespace Resources.Scripts.Heroes
             }
         }
 
-        public string GetClassName(string nameHero)
+        public string GetClassName(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => "No Weapon Hero",
                 GlobalConst.BOW_HERO => "Bow Hero",
@@ -60,9 +58,9 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public float GetSpeedHero(string nameHero)
+        public float GetHeroSpeed(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => _speed * _lowMultiplier,
                 GlobalConst.BOW_HERO => _speed * _highMultiplier,
@@ -74,9 +72,9 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public float GetDefenseHero(string nameHero)
+        public float GetHeroDefense(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => _defense * _lowMultiplier,
                 GlobalConst.BOW_HERO => _defense * _lowMultiplier,
@@ -88,9 +86,9 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public float GetAttackHero(string nameHero)
+        public float GetHeroAttack(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => _attack * _lowMultiplier,
                 GlobalConst.BOW_HERO => _attack * _highMultiplier,
@@ -102,9 +100,9 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public float GetHealthHero(string nameHero)
+        public float GetHeroHealth(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => _health * _lowMultiplier,
                 GlobalConst.BOW_HERO => _health * _lowMultiplier,
@@ -116,9 +114,9 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public int GetPriceForHero(string nameHero)
+        public int GetHeroPrice(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.BOW_HERO => (int)PriceForHero.BowHero,
                 GlobalConst.MAGIC_WAND => (int)PriceForHero.MagicWand,
@@ -129,12 +127,27 @@ namespace Resources.Scripts.Heroes
             };
         }
 
-        public bool GetHeroActivatedInformation(string nameHero)
+        public bool GetHeroActivatedInformation(string heroName)
         {
-            return nameHero switch
+            return heroName switch
             {
                 GlobalConst.NO_WEAPON => true,
                 _ => false
+            };
+        }
+
+        public string GetPlayerName(string heroName)
+        {
+            return heroName switch
+            {
+                GlobalConst.NO_WEAPON => "NoWeapon01",
+                GlobalConst.BOW_HERO => "Bow01",
+                GlobalConst.MAGIC_WAND => "MagicWand01",
+                GlobalConst.DOUBLE_SWORD => "DoubleSword01",
+                GlobalConst.SWORD_SHIELD => "SwordShield01",
+                GlobalConst.TWO_HANDS_SWORD => "TwoHandsSword01",
+                
+                _ => "Secret01"
             };
         }
     }
