@@ -4,6 +4,7 @@ namespace Resources.Scripts.Heroes
 {
     public class Hero : MonoBehaviour
     {
+        public bool IsHeroBought { get; set; }
         [field:SerializeField] public float Health { get; private set; }
         [field:SerializeField] public float Attack { get; private set; }
         [field:SerializeField] public float Defense { get; private set; }
@@ -12,7 +13,6 @@ namespace Resources.Scripts.Heroes
         [field:SerializeField] public Sprite ClassIcon { get; private set; }
         [field:SerializeField] public int HeroPrice { get; private set; }
         [field:SerializeField] public string PlayerName { get; private set; }
-        public bool IsHeroBought { get; set; }
         
         private HeroSettings _heroSettings;
 

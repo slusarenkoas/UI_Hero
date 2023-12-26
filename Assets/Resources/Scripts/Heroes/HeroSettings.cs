@@ -4,12 +4,6 @@ namespace Resources.Scripts.Heroes
 {
     public class HeroSettings : MonoBehaviour
     {
-        
-        private float _health = 100f;
-        private float _attack = 100f;
-        private float _defense = 100f;
-        private float _speed = 100f;
-
         [SerializeField] private Sprite _classIconDamage;
         [SerializeField] private Sprite _classIconDefender;
         [SerializeField] private Sprite _secretClass;
@@ -17,7 +11,12 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private float _lowMultiplier = 0.3f;
         [SerializeField] private float _mediumMultiplier = 0.6f;
         [SerializeField] private float _highMultiplier = 1f;
-
+        
+        private float _health = 100f;
+        private float _attack = 100f;
+        private float _defense = 100f;
+        private float _speed = 100f;
+        
         private enum PriceForHero
         {
             BowHero = 1000,
@@ -146,7 +145,6 @@ namespace Resources.Scripts.Heroes
                 GlobalConst.DOUBLE_SWORD => "DoubleSword01",
                 GlobalConst.SWORD_SHIELD => "SwordShield01",
                 GlobalConst.TWO_HANDS_SWORD => "TwoHandsSword01",
-                
                 _ => "Secret01"
             };
         }

@@ -1,4 +1,3 @@
-using Resources.Scripts.Currency;
 using Resources.Scripts.Heroes;
 using TMPro;
 using UnityEngine;
@@ -10,28 +9,15 @@ namespace Resources.Scripts.Views
         [SerializeField] private TextMeshProUGUI _textHeroName;
 
         private HeroesManager _heroesManager;
-        private CurrencyManager _currencyManager;
-        private ViewLobbyController _viewLobbyController;
-        
-        public void Initialize(HeroesManager heroesManager, CurrencyManager currencyManager, ViewLobbyController viewLobbyController)
+
+        public void Initialize(HeroesManager heroesManager)
         {
-            _viewLobbyController = viewLobbyController;
             _heroesManager = heroesManager;
-            _currencyManager = currencyManager;
         }
 
         private void OnEnable()
         {
-            _viewLobbyController.StartMenuScreenOpened += ShowOnStartMenuScreenElements;
-        }
-
-        private void OnDisable()
-        {
-            _viewLobbyController.StartMenuScreenOpened -= ShowOnStartMenuScreenElements;
-        }
-
-        private void ShowOnStartMenuScreenElements()
-        {
+            _heroesManager.ActiveHero.gameObject.SetActive(true);
             _textHeroName.text = _heroesManager.ActiveHero.PlayerName;
         }
     }

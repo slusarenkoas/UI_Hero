@@ -1239,7 +1239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroesManager: {fileID: 1951889983}
-  _currencyManager: {fileID: 284049370}
   _viewLobbyController: {fileID: 1032340018}
   _heroSettings: {fileID: 284049369}
 --- !u!1 &285540924
@@ -1420,7 +1419,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -2578,7 +2577,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -2776,13 +2775,15 @@ MonoBehaviour:
   _heroPrice: {fileID: 1259254442812971313}
   _textHeroType: {fileID: 646294662}
   _textHeroName: {fileID: 1289876279}
-  _healthValueViewOnStatsScreen: {fileID: 3423547225785099630}
-  _attackValueViewOnStatsScreen: {fileID: 662209262}
-  _defenseValueViewOnStatsScreen: {fileID: 1254103693}
-  _speedValueViewOnStatsScreen: {fileID: 300863593}
+  _healthValueOnStatsScreen: {fileID: 3423547225785099630}
+  _attackValueOnStatsScreen: {fileID: 662209262}
+  _defenseValueOnStatsScreen: {fileID: 1254103693}
+  _speedValueOnStatsScreen: {fileID: 300863593}
   _heroTypeIcon: {fileID: 264764963}
   _buttonHeroBuy: {fileID: 5266967025446717569}
   _buttonHeroSelect: {fileID: 624984874}
+  _currencyManager: {fileID: 284049370}
+  _heroesSwitcher: {fileID: 1951889984}
 --- !u!114 &799322334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,7 +4653,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -6908,6 +6909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1951889982}
   - component: {fileID: 1951889983}
+  - component: {fileID: 1951889984}
   m_Layer: 0
   m_Name: Heroes
   m_TagString: Untagged
@@ -6955,7 +6957,21 @@ MonoBehaviour:
   - {fileID: 1484003693}
   - {fileID: 1597684772}
   - {fileID: 1849219162}
+  _heroesSwitcher: {fileID: 1951889984}
+--- !u!114 &1951889984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951889981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412f870f7d50bdf4a9f4ba64bbdd35f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _viewHeroSelectionLobby: {fileID: 799322333}
+  _heroesManager: {fileID: 1951889983}
 --- !u!1001 &1953760229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9272,7 +9288,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:

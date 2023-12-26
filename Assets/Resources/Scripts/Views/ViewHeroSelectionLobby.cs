@@ -9,41 +9,32 @@ namespace Resources.Scripts.Views
 {
     public class ViewHeroSelectionLobby : MonoBehaviour
     {
+        public event Action ExitFromSelectionLobbyController;
+        public event Action SelectHeroOnLobbyController; 
+        public event Action CurrentHeroBought;
+        
         [SerializeField] private TextMeshProUGUI _heroPrice;
         [SerializeField] private TextMeshProUGUI _textHeroType;
         [SerializeField] private TextMeshProUGUI _textHeroName;
 
-        [SerializeField] private Slider _healthValueViewOnStatsScreen;
-        [SerializeField] private Slider _attackValueViewOnStatsScreen;
-        [SerializeField] private Slider _defenseValueViewOnStatsScreen;
-        [SerializeField] private Slider _speedValueViewOnStatsScreen;
+        [SerializeField] private Slider _healthValueOnStatsScreen;
+        [SerializeField] private Slider _attackValueOnStatsScreen;
+        [SerializeField] private Slider _defenseValueOnStatsScreen;
+        [SerializeField] private Slider _speedValueOnStatsScreen;
 
         [SerializeField] private Image _heroTypeIcon;
 
         [SerializeField] private Button _buttonHeroBuy;
         [SerializeField] private Button _buttonHeroSelect;
-
-        private HeroesManager _heroesManager;
-        private CurrencyManager _currencyManager;
-        private Hero _currentHero;
-
-        public event Action ExitFromSelectionLobbyController;
-        public event Action SelectNewHeroOnLobbyController; 
-        public event Action CurrentHeroBought;
         
-        public void Initialize(HeroesManager heroesManager, CurrencyManager currencyManager, ViewLobbyController viewLobbyController)
-        {
-            _heroesManager = heroesManager;
-            _currencyManager = currencyManager;
-
-            _currentHero = _heroesManager.CurrentHeroInSelectionLobby;
-            _currentHero.gameObject.SetActive(true);
-        }
+        [SerializeField] private CurrencyManager _currencyManager;
+        [SerializeField] private HeroesSwitcher _heroesSwitcher;
 
         public void BuyCurrentHero()
         {
-            var isHeroBought = _currencyManager.TryBuyCurrentHero(_currentHero.HeroPrice);
-
+            var isHeroBought = _currencyManager.TryBuyCurrentHero
+                (_heroesSwitcher.CurrentHeroInSelectionLobby.HeroPrice);
+            
             if (!isHeroBought)
             {
                 return;
@@ -55,34 +46,34 @@ namespace Resources.Scripts.Views
 
         public void SelectNewGameHero()
         {
-            SelectNewHeroOnLobbyController?.Invoke();
+            SelectHeroOnLobbyController?.Invoke();
         }
 
         public void ViewNextHero()
         {
-            _currentHero.gameObject.SetActive(false);
-            _heroesManager.ReturnNextHero();
-            _currentHero = _heroesManager.CurrentHeroInSelectionLobby;
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(false);
+            _heroesSwitcher.SetCurrentNextHero();
             SetHeroStats();
             SetHeroInfo();
-            _currentHero.gameObject.SetActive(true);
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(true);
+            
             ShowCurrentHeroSelection();
         }
 
         public void ViewPreviousHero()
         {
-            _currentHero.gameObject.SetActive(false);
-            _heroesManager.ReturnPreviousHero();
-            _currentHero = _heroesManager.CurrentHeroInSelectionLobby;
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(false);
+            _heroesSwitcher.SetCurrentPreviousHero();
             SetHeroStats();
             SetHeroInfo();
-            _currentHero.gameObject.SetActive(true);
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(true);
+            
             ShowCurrentHeroSelection();
         }
         
         private void ShowCurrentHeroSelection()
         {
-            if (_currentHero.IsHeroBought)
+            if (_heroesSwitcher.CurrentHeroInSelectionLobby.IsHeroBought)
             {
                 _buttonHeroBuy.gameObject.SetActive(false);
                 _buttonHeroSelect.gameObject.SetActive(true);
@@ -95,22 +86,27 @@ namespace Resources.Scripts.Views
         
         private void SetHeroStats()
         {
-            _healthValueViewOnStatsScreen.value = _currentHero.Health / 100;
-            _attackValueViewOnStatsScreen.value = _currentHero.Attack / 100;
-            _defenseValueViewOnStatsScreen.value = _currentHero.Defense / 100;
-            _speedValueViewOnStatsScreen.value = _currentHero.Speed / 100;
+           _healthValueOnStatsScreen.value = 
+               _heroesSwitcher.CurrentHeroInSelectionLobby.Health;
+           _attackValueOnStatsScreen.value = 
+               _heroesSwitcher.CurrentHeroInSelectionLobby.Attack;
+           _defenseValueOnStatsScreen.value = 
+               _heroesSwitcher.CurrentHeroInSelectionLobby.Defense;
+           _speedValueOnStatsScreen.value = 
+               _heroesSwitcher.CurrentHeroInSelectionLobby.Speed;
         }
 
         private void SetHeroInfo()
         {
-            _heroTypeIcon.sprite = _currentHero.ClassIcon;
-            _textHeroType.text = _currentHero.ClassType;
-            _heroPrice.text = _currentHero.HeroPrice.ToString();
-            _textHeroName.text = _currentHero.PlayerName;
+            _heroTypeIcon.sprite = _heroesSwitcher.CurrentHeroInSelectionLobby.ClassIcon;
+            _textHeroType.text = _heroesSwitcher.CurrentHeroInSelectionLobby.ClassType;
+            _heroPrice.text = _heroesSwitcher.CurrentHeroInSelectionLobby.HeroPrice.ToString();
+            _textHeroName.text = _heroesSwitcher.CurrentHeroInSelectionLobby.PlayerName;
         }
         
         private void OnEnable()
         {
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(true);
             SetHeroStats();
             SetHeroInfo();
             ShowCurrentHeroSelection();
@@ -118,15 +114,10 @@ namespace Resources.Scripts.Views
         
         private void OnDisable()
         {
-            if (_currentHero != null)
-            {
-                _currentHero.gameObject.SetActive(false);
-                ExitFromSelectionLobbyController?.Invoke();
-                _currentHero = _heroesManager.ActiveHero;
-                SetHeroStats();
-                SetHeroInfo();
-                _currentHero.gameObject.SetActive(true);
-            }
+            if (_heroesSwitcher.CurrentHeroInSelectionLobby == null) return;
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(false);
+            ExitFromSelectionLobbyController?.Invoke();
+            _heroesSwitcher.CurrentHeroInSelectionLobby.gameObject.SetActive(true);
         }
     }
 }

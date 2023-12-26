@@ -1,5 +1,4 @@
 using System;
-using Resources.Scripts.Currency;
 using Resources.Scripts.Heroes;
 using UnityEngine;
 
@@ -7,17 +6,15 @@ namespace Resources.Scripts.Views
 {
     public class ViewLobbyController : MonoBehaviour
     {
-        [SerializeField] private ViewStartMenu _viewStartMenu;
-        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
-
         public event Action StartMenuScreenOpened;
         public event Action HeroSelectionLobbyScreenOpened;
-
-        public void Initialize(HeroesManager heroesManager, CurrencyManager currencyManager)
+        
+        [SerializeField] private ViewStartMenu _viewStartMenu;
+        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
+        
+        public void Initialize(HeroesManager heroesManager)
         {
-            _viewStartMenu.Initialize(heroesManager, currencyManager,this);
-            _viewHeroSelectionLobby.Initialize(heroesManager, currencyManager,this);
-            
+            _viewStartMenu.Initialize(heroesManager);
             ShowStartMenu();
         }
         
