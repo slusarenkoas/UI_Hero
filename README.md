@@ -3,7 +3,7 @@ You need to create a character selection screen where the values of heroes' char
 ![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Task.gif)
 
 Result:
-![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/FunctionResult.gif)
+![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/function.gif)
 
 Result screen Size:
-![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/ScreenSize.gif)
+![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Screen.gif)
