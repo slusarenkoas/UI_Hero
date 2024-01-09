@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroesManager: {fileID: 1951889983}
-  _viewLobbyController: {fileID: 1032340018}
+  _lobbyView: {fileID: 1032340018}
   _heroSettings: {fileID: 284049369}
 --- !u!1 &285540924
 GameObject:
@@ -2782,7 +2782,6 @@ MonoBehaviour:
   _heroTypeIcon: {fileID: 264764963}
   _buttonHeroBuy: {fileID: 5266967025446717569}
   _buttonHeroSelect: {fileID: 624984874}
-  _currencyManager: {fileID: 284049370}
   _heroesSwitcher: {fileID: 1951889984}
 --- !u!114 &799322334
 MonoBehaviour:
@@ -2799,7 +2798,7 @@ MonoBehaviour:
   _currencyManager: {fileID: 284049370}
   _gold: {fileID: 3166221210556952567}
   _diamond: {fileID: 2936008197460073013}
-  _viewLobbyController: {fileID: 1032340018}
+  _lobbyView: {fileID: 1032340018}
 --- !u!224 &810657677 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7371093402653735327, guid: d50cf04373ab4ec46ad034b070b91cc8, type: 3}
@@ -3738,8 +3737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a47a9d93c809cc47b9829bf85021374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewStartMenu: {fileID: 1461699566}
-  _viewHeroSelectionLobby: {fileID: 799322333}
+  _startMenuView: {fileID: 1461699566}
+  _heroSelectionLobbyView: {fileID: 799322333}
 --- !u!114 &1113266430 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9209846340160800845, guid: d50cf04373ab4ec46ad034b070b91cc8, type: 3}
@@ -5446,7 +5445,7 @@ MonoBehaviour:
   _currencyManager: {fileID: 284049370}
   _gold: {fileID: 1113266430}
   _diamond: {fileID: 1400661429}
-  _viewLobbyController: {fileID: 1032340018}
+  _lobbyView: {fileID: 1032340018}
 --- !u!1 &1484003691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1968433030019078, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
@@ -6970,8 +6969,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412f870f7d50bdf4a9f4ba64bbdd35f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewHeroSelectionLobby: {fileID: 799322333}
+  _heroSelectionLobbyView: {fileID: 799322333}
   _heroesManager: {fileID: 1951889983}
+  _currencyManager: {fileID: 284049370}
 --- !u!1001 &1953760229
 PrefabInstance:
   m_ObjectHideFlags: 0

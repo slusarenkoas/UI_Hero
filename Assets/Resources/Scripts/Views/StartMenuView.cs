@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Resources.Scripts.Views
 {
-    public class ViewStartMenu : MonoBehaviour
+    public class StartMenuView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _textHeroName;
 

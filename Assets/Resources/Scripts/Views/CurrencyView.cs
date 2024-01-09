@@ -4,24 +4,24 @@ using UnityEngine;
 
 namespace Resources.Scripts.Views
 {
-    public class ViewCurrency : MonoBehaviour
+    public class CurrencyView : MonoBehaviour
     {
         [SerializeField] private CurrencyManager _currencyManager;
         [SerializeField] private TextMeshProUGUI _gold;
         [SerializeField] private TextMeshProUGUI _diamond;
-        [SerializeField] private ViewLobbyController _viewLobbyController;
+        [SerializeField] private LobbyView _lobbyView;
 
         private void Awake()
         {
-            _viewLobbyController.StartMenuScreenOpened += SetCurrencyValue;
-            _viewLobbyController.HeroSelectionLobbyScreenOpened += SetCurrencyValue;
+            _lobbyView.StartMenuScreenOpened += SetCurrencyValue;
+            _lobbyView.HeroSelectionLobbyScreenOpened += SetCurrencyValue;
             _currencyManager.HeroBought += SetCurrencyValue;
         }
 
         private void OnDestroy()
         {
-            _viewLobbyController.StartMenuScreenOpened -= SetCurrencyValue;
-            _viewLobbyController.HeroSelectionLobbyScreenOpened -= SetCurrencyValue;
+            _lobbyView.StartMenuScreenOpened -= SetCurrencyValue;
+            _lobbyView.HeroSelectionLobbyScreenOpened -= SetCurrencyValue;
             
             _currencyManager.HeroBought -= SetCurrencyValue;
         }

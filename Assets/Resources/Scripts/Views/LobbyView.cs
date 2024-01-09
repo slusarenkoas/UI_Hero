@@ -4,32 +4,32 @@ using UnityEngine;
 
 namespace Resources.Scripts.Views
 {
-    public class ViewLobbyController : MonoBehaviour
+    public class LobbyView : MonoBehaviour
     {
         public event Action StartMenuScreenOpened;
         public event Action HeroSelectionLobbyScreenOpened;
         
-        [SerializeField] private ViewStartMenu _viewStartMenu;
-        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
+        [SerializeField] private StartMenuView _startMenuView;
+        [SerializeField] private HeroSelectionLobbyView _heroSelectionLobbyView;
         
         public void Initialize(HeroesManager heroesManager)
         {
-            _viewStartMenu.Initialize(heroesManager);
+            _startMenuView.Initialize(heroesManager);
             ShowStartMenu();
         }
         
         public void ShowStartMenu()
         {
-            _viewHeroSelectionLobby.gameObject.SetActive(false);
-            _viewStartMenu.gameObject.SetActive(true);
+            _heroSelectionLobbyView.gameObject.SetActive(false);
+            _startMenuView.gameObject.SetActive(true);
             
             StartMenuScreenOpened?.Invoke();
         }
 
         public void ShowHeroSelectionLobby()
         {
-            _viewStartMenu.gameObject.SetActive(false);
-            _viewHeroSelectionLobby.gameObject.SetActive(true);
+            _startMenuView.gameObject.SetActive(false);
+            _heroSelectionLobbyView.gameObject.SetActive(true);
             
             HeroSelectionLobbyScreenOpened?.Invoke();    
         }

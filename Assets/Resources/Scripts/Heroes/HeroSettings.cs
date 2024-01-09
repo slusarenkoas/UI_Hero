@@ -30,13 +30,13 @@ namespace Resources.Scripts.Heroes
         {
             switch (heroName)
             {
-                case GlobalConst.BOW_HERO:
-                case GlobalConst.MAGIC_WAND:
-                case GlobalConst.DOUBLE_SWORD:
-                case GlobalConst.TWO_HANDS_SWORD:
+                case GlobalConstants.BOW_HERO:
+                case GlobalConstants.MAGIC_WAND:
+                case GlobalConstants.DOUBLE_SWORD:
+                case GlobalConstants.TWO_HANDS_SWORD:
                     return _classIconDamage;
-                case  GlobalConst.NO_WEAPON:
-                    case  GlobalConst.SWORD_SHIELD:
+                case  GlobalConstants.NO_WEAPON:
+                    case  GlobalConstants.SWORD_SHIELD:
                     return _classIconDefender;
                 default:
                     return _secretClass;
@@ -47,12 +47,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => "No Weapon Hero",
-                GlobalConst.BOW_HERO => "Bow Hero",
-                GlobalConst.MAGIC_WAND => "Magic Wand Hero",
-                GlobalConst.DOUBLE_SWORD => "Double Sword Hero",
-                GlobalConst.SWORD_SHIELD => "Sword Shield Hero",
-                GlobalConst.TWO_HANDS_SWORD => "Two Hands Sword Hero",
+                GlobalConstants.NO_WEAPON => "No Weapon Hero",
+                GlobalConstants.BOW_HERO => "Bow Hero",
+                GlobalConstants.MAGIC_WAND => "Magic Wand Hero",
+                GlobalConstants.DOUBLE_SWORD => "Double Sword Hero",
+                GlobalConstants.SWORD_SHIELD => "Sword Shield Hero",
+                GlobalConstants.TWO_HANDS_SWORD => "Two Hands Sword Hero",
                 _ => "Secret Hero"
             };
         }
@@ -61,12 +61,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => _speed * _lowMultiplier,
-                GlobalConst.BOW_HERO => _speed * _highMultiplier,
-                GlobalConst.MAGIC_WAND => _speed * _lowMultiplier,
-                GlobalConst.DOUBLE_SWORD => _speed * _highMultiplier,
-                GlobalConst.SWORD_SHIELD => _speed * _lowMultiplier,
-                GlobalConst.TWO_HANDS_SWORD => _speed * _highMultiplier,
+                GlobalConstants.NO_WEAPON => _speed * _lowMultiplier,
+                GlobalConstants.BOW_HERO => _speed * _highMultiplier,
+                GlobalConstants.MAGIC_WAND => _speed * _lowMultiplier,
+                GlobalConstants.DOUBLE_SWORD => _speed * _highMultiplier,
+                GlobalConstants.SWORD_SHIELD => _speed * _lowMultiplier,
+                GlobalConstants.TWO_HANDS_SWORD => _speed * _highMultiplier,
                 _ => 0
             };
         }
@@ -75,12 +75,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => _defense * _lowMultiplier,
-                GlobalConst.BOW_HERO => _defense * _lowMultiplier,
-                GlobalConst.MAGIC_WAND => _defense * _lowMultiplier,
-                GlobalConst.DOUBLE_SWORD => _defense * _lowMultiplier,
-                GlobalConst.SWORD_SHIELD => _defense * _highMultiplier,
-                GlobalConst.TWO_HANDS_SWORD => _defense * _mediumMultiplier,
+                GlobalConstants.NO_WEAPON => _defense * _lowMultiplier,
+                GlobalConstants.BOW_HERO => _defense * _lowMultiplier,
+                GlobalConstants.MAGIC_WAND => _defense * _lowMultiplier,
+                GlobalConstants.DOUBLE_SWORD => _defense * _lowMultiplier,
+                GlobalConstants.SWORD_SHIELD => _defense * _highMultiplier,
+                GlobalConstants.TWO_HANDS_SWORD => _defense * _mediumMultiplier,
                 _ => 0
             };
         }
@@ -89,12 +89,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => _attack * _lowMultiplier,
-                GlobalConst.BOW_HERO => _attack * _highMultiplier,
-                GlobalConst.MAGIC_WAND => _attack * _highMultiplier,
-                GlobalConst.DOUBLE_SWORD => _attack * _mediumMultiplier,
-                GlobalConst.SWORD_SHIELD => _attack * _lowMultiplier,
-                GlobalConst.TWO_HANDS_SWORD => _attack * _highMultiplier,
+                GlobalConstants.NO_WEAPON => _attack * _lowMultiplier,
+                GlobalConstants.BOW_HERO => _attack * _highMultiplier,
+                GlobalConstants.MAGIC_WAND => _attack * _highMultiplier,
+                GlobalConstants.DOUBLE_SWORD => _attack * _mediumMultiplier,
+                GlobalConstants.SWORD_SHIELD => _attack * _lowMultiplier,
+                GlobalConstants.TWO_HANDS_SWORD => _attack * _highMultiplier,
                 _ => 0
             };
         }
@@ -103,12 +103,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => _health * _lowMultiplier,
-                GlobalConst.BOW_HERO => _health * _lowMultiplier,
-                GlobalConst.MAGIC_WAND => _health * _lowMultiplier,
-                GlobalConst.DOUBLE_SWORD => _health * _mediumMultiplier,
-                GlobalConst.SWORD_SHIELD => _health * _highMultiplier,
-                GlobalConst.TWO_HANDS_SWORD => _health * _mediumMultiplier,
+                GlobalConstants.NO_WEAPON => _health * _lowMultiplier,
+                GlobalConstants.BOW_HERO => _health * _lowMultiplier,
+                GlobalConstants.MAGIC_WAND => _health * _lowMultiplier,
+                GlobalConstants.DOUBLE_SWORD => _health * _mediumMultiplier,
+                GlobalConstants.SWORD_SHIELD => _health * _highMultiplier,
+                GlobalConstants.TWO_HANDS_SWORD => _health * _mediumMultiplier,
                 _ => 0
             };
         }
@@ -117,11 +117,11 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.BOW_HERO => (int)PriceForHero.BowHero,
-                GlobalConst.MAGIC_WAND => (int)PriceForHero.MagicWand,
-                GlobalConst.DOUBLE_SWORD => (int)PriceForHero.DoubleSword,
-                GlobalConst.SWORD_SHIELD => (int)PriceForHero.SwordShield,
-                GlobalConst.TWO_HANDS_SWORD => (int)PriceForHero.TwoHandsSword,
+                GlobalConstants.BOW_HERO => (int)PriceForHero.BowHero,
+                GlobalConstants.MAGIC_WAND => (int)PriceForHero.MagicWand,
+                GlobalConstants.DOUBLE_SWORD => (int)PriceForHero.DoubleSword,
+                GlobalConstants.SWORD_SHIELD => (int)PriceForHero.SwordShield,
+                GlobalConstants.TWO_HANDS_SWORD => (int)PriceForHero.TwoHandsSword,
                 _ => 0
             };
         }
@@ -130,7 +130,7 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => true,
+                GlobalConstants.NO_WEAPON => true,
                 _ => false
             };
         }
@@ -139,12 +139,12 @@ namespace Resources.Scripts.Heroes
         {
             return heroName switch
             {
-                GlobalConst.NO_WEAPON => "NoWeapon01",
-                GlobalConst.BOW_HERO => "Bow01",
-                GlobalConst.MAGIC_WAND => "MagicWand01",
-                GlobalConst.DOUBLE_SWORD => "DoubleSword01",
-                GlobalConst.SWORD_SHIELD => "SwordShield01",
-                GlobalConst.TWO_HANDS_SWORD => "TwoHandsSword01",
+                GlobalConstants.NO_WEAPON => "NoWeapon01",
+                GlobalConstants.BOW_HERO => "Bow01",
+                GlobalConstants.MAGIC_WAND => "MagicWand01",
+                GlobalConstants.DOUBLE_SWORD => "DoubleSword01",
+                GlobalConstants.SWORD_SHIELD => "SwordShield01",
+                GlobalConstants.TWO_HANDS_SWORD => "TwoHandsSword01",
                 _ => "Secret01"
             };
         }

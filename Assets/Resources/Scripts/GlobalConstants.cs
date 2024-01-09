@@ -1,6 +1,6 @@
 ﻿namespace Resources.Scripts
 {
-    public class GlobalConst
+    public class GlobalConstants
     {
         public const string BOW_HERO = "Bow";
         public const string DOUBLE_SWORD = "DoubleSword";

@@ -1,3 +1,4 @@
+using Resources.Scripts.Currency;
 using Resources.Scripts.Views;
 using UnityEngine;
 
@@ -7,8 +8,9 @@ namespace Resources.Scripts.Heroes
     {
         public Hero CurrentHeroInSelectionLobby { get; private set; }
         
-        [SerializeField] private ViewHeroSelectionLobby _viewHeroSelectionLobby;
+        [SerializeField] private HeroSelectionLobbyView _heroSelectionLobbyView;
         [SerializeField] private HeroesManager _heroesManager;
+        [SerializeField] private CurrencyManager _currencyManager;
         
         private Hero[] _heroes;
         private int _indexChosenHero;
@@ -18,22 +20,55 @@ namespace Resources.Scripts.Heroes
             _heroes = heroes;
             CurrentHeroInSelectionLobby = activeHero;
 
-            _viewHeroSelectionLobby.SelectHeroOnLobbyController += SetActiveHero;
-            _viewHeroSelectionLobby.ExitFromSelectionLobbyController += ReturnCurrentHero;
-            _viewHeroSelectionLobby.CurrentHeroBought += SetFlagIsBought;
+            _heroSelectionLobbyView.SelectHeroOnLobbyController += SetActiveHero;
+            _heroSelectionLobbyView.ExitFromSelectionLobbyController += ResetCurrentHero;
+        }
+
+        public bool TryBuyCurrentHero()
+        {
+            var isHeroBought = _currencyManager.
+                TryBuyCurrentHero(CurrentHeroInSelectionLobby.HeroPrice);
+            
+            if (!isHeroBought)
+            {
+                return false;
+            }
+            
+            CurrentHeroInSelectionLobby.IsHeroBought = true;
+
+            return true;
+        }
+
+
+        public void SetCurrentNextHero()
+        {
+            _indexChosenHero = (_indexChosenHero + 1) % _heroes.Length;
+            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
+        }
+
+        public void SetCurrentPreviousHero()
+        {
+            _indexChosenHero = (_indexChosenHero - 1 + _heroes.Length) % _heroes.Length;
+            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
+        }
+
+        public void HideCurrentHero()
+        {
+            CurrentHeroInSelectionLobby.gameObject.SetActive(false);
+        }
+
+        public void ShowCurrentHero()
+        {
+            CurrentHeroInSelectionLobby.gameObject.SetActive(true);
         }
         
-        private void SetFlagIsBought()
-        {
-            CurrentHeroInSelectionLobby.IsHeroBought = true;
-        }
         
         private void SetActiveHero()
         {
             _heroesManager.SetNewActiveHero(CurrentHeroInSelectionLobby);
         }
 
-        private void ReturnCurrentHero()
+        private void ResetCurrentHero()
         {
             CurrentHeroInSelectionLobby = _heroesManager.ActiveHero;
 
@@ -46,23 +81,10 @@ namespace Resources.Scripts.Heroes
             }
         }
         
-        public void SetCurrentNextHero()
-        {
-            _indexChosenHero = (_indexChosenHero + 1) % _heroes.Length;
-            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
-        }
-
-        public void SetCurrentPreviousHero()
-        {
-            _indexChosenHero = (_indexChosenHero - 1 + _heroes.Length) % _heroes.Length;
-            CurrentHeroInSelectionLobby = _heroes[_indexChosenHero];
-        }
-        
         private void OnDestroy()
         {
-            _viewHeroSelectionLobby.ExitFromSelectionLobbyController -= ReturnCurrentHero;
-            _viewHeroSelectionLobby.SelectHeroOnLobbyController -= SetActiveHero;
-            _viewHeroSelectionLobby.CurrentHeroBought -= SetFlagIsBought;
+            _heroSelectionLobbyView.ExitFromSelectionLobbyController -= ResetCurrentHero;
+            _heroSelectionLobbyView.SelectHeroOnLobbyController -= SetActiveHero;
         }
     }
 }
