@@ -8,6 +8,7 @@ namespace Resources.Scripts.Currency
     {
        [field:SerializeField] public int Gold { get; private set; }
        [field:SerializeField] public int Diamond { get; private set; }
+       [field:SerializeField] public int Spins { get; private set; }
 
        public event Action HeroBought;
        

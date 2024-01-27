@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Hero
+  - RewardHealth
+  - RewardGold
+  - RewardDiamond
+  - RewardLostSpin
+  - RewardSurprise
   layers:
   - Default
   - TransparentFX

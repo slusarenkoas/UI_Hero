@@ -1,8 +1,8 @@
-﻿using Resources.Scripts.Currency;
+﻿using Resources.Scripts.Views;
 using TMPro;
 using UnityEngine;
 
-namespace Resources.Scripts.Views
+namespace Resources.Scripts.Currency
 {
     public class CurrencyView : MonoBehaviour
     {
@@ -15,6 +15,7 @@ namespace Resources.Scripts.Views
         {
             _lobbyView.StartMenuScreenOpened += SetCurrencyValue;
             _lobbyView.HeroSelectionLobbyScreenOpened += SetCurrencyValue;
+            _lobbyView.PresentWheelScreenOpened += SetCurrencyValue;
             _currencyManager.HeroBought += SetCurrencyValue;
         }
 
@@ -22,7 +23,7 @@ namespace Resources.Scripts.Views
         {
             _lobbyView.StartMenuScreenOpened -= SetCurrencyValue;
             _lobbyView.HeroSelectionLobbyScreenOpened -= SetCurrencyValue;
-            
+            _lobbyView.PresentWheelScreenOpened -= SetCurrencyValue;
             _currencyManager.HeroBought -= SetCurrencyValue;
         }
 
