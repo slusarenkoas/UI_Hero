@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Resources.Scripts.LuckySpin
@@ -7,55 +6,47 @@ namespace Resources.Scripts.LuckySpin
     public class LuckySpinController : MonoBehaviour
     {
         [field:SerializeField] public int Spins { get; private set; }
-        
         [field:SerializeField] public int RewardHealth { get; private set; }
         [field:SerializeField] public int RewardGold { get; private set; }
         [field:SerializeField] public int RewardDiamond { get; private set; }
 
-        [SerializeField] private WheelController _wheel;
-        [SerializeField] private List <LuckySpinReward> _rewards;
+        [SerializeField] private SelectController _selectController;
+        [SerializeField] private ChestController _chest;
         
+        private LuckySpinReward _currentReward;
 
         public event Action StartRotation;
-        
-        private void OnEnable()
+
+        private void Start()
         {
-            _wheel.EndRotation += SelectReward;
+            _selectController.RewardSelected += SetCurrentReward;
+        }
+
+        private void SetCurrentReward()
+        {
+            _currentReward = _selectController.CurrentRewards;
+            _chest.AddRewardInChest(_currentReward);
         }
 
         private void OnDestroy()
         {
-            _wheel.EndRotation -= SelectReward;
+            _selectController.RewardSelected -= SetCurrentReward;
         }
 
         public void StartWheelRotation()
         {
-            if (Spins <= 0)
+            if (!HasSpins())
             {
                 return;
             }
             
             Spins--;
             StartRotation?.Invoke();
-            DisableColliderRewards();
-            _wheel.StartRotateWheel();
         }
 
-        private void DisableColliderRewards()
+        public bool HasSpins()
         {
-            foreach (var reward in _rewards)
-            {
-                reward.DisableCollider();
-            }
-        }
-
-        private void SelectReward()
-        {
-            foreach (var reward in _rewards)
-            {
-                reward.EnableCollider();
-            }
-            
+            return Spins > 0;
         }
     }
 }

@@ -13,8 +13,6 @@ namespace Resources.Scripts.LuckySpin
         
         private Animator _animator;
         
-
-        private static readonly int StartShuffle = Animator.StringToHash("StartShuffle");
         private static readonly int RewardCard = Animator.StringToHash("RewardCard");
         private static readonly int ScullCard = Animator.StringToHash("ScullCard");
 

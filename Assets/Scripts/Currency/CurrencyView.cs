@@ -16,7 +16,7 @@ namespace Resources.Scripts.Currency
             _lobbyView.StartMenuScreenOpened += SetCurrencyValue;
             _lobbyView.HeroSelectionLobbyScreenOpened += SetCurrencyValue;
             _lobbyView.PresentWheelScreenOpened += SetCurrencyValue;
-            _currencyManager.HeroBought += SetCurrencyValue;
+            _currencyManager.ValueChanged += SetCurrencyValue;
         }
 
         private void OnDestroy()
@@ -24,7 +24,7 @@ namespace Resources.Scripts.Currency
             _lobbyView.StartMenuScreenOpened -= SetCurrencyValue;
             _lobbyView.HeroSelectionLobbyScreenOpened -= SetCurrencyValue;
             _lobbyView.PresentWheelScreenOpened -= SetCurrencyValue;
-            _currencyManager.HeroBought -= SetCurrencyValue;
+            _currencyManager.ValueChanged -= SetCurrencyValue;
         }
 
         private void SetCurrencyValue()
