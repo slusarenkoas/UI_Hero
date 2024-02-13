@@ -8,7 +8,7 @@ namespace Resources.Scripts.LuckySpin
 
         [SerializeField] private LuckySpinController _luckySpinController;
         [SerializeField] private ChestAnimator _chestAnimator;
-        
+       
         public int Gold { get; private set; }
         public int Diamond { get; private set; }
         public int Health { get; private set; }

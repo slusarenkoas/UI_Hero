@@ -1,6 +1,7 @@
 ﻿using Resources.Scripts.Views;
 using TMPro;
 using UnityEngine;
+using Views;
 
 namespace Resources.Scripts.Currency
 {

@@ -1,6 +1,8 @@
+using Resources.Scripts;
+using Resources.Scripts.LuckySpin;
 using UnityEngine;
 
-namespace Resources.Scripts.LuckySpin
+namespace LuckySpin
 {
     public class CardsAnimationController : MonoBehaviour
     {
@@ -18,7 +20,8 @@ namespace Resources.Scripts.LuckySpin
         [SerializeField] private string _skullCardText;
         [SerializeField] private string _healthCardText;
         [SerializeField] private string _surpriseCardText;
-        
+
+        [SerializeField] private AudioManager _audioManager;
         private void Start()
         {
             _selectController.RewardSelected += StartCardAnimation;
@@ -37,18 +40,23 @@ namespace Resources.Scripts.LuckySpin
             switch (currentTagCard)
             {
                 case GlobalConstants.REWARD_DIAMOND:
+                    _audioManager.PlayLuckySpinRewardCardSound();
                     _cardAnimator.StartCardAnimation(currentRewardValue,_diamondIcon,_diamondCardText,false);
                     break;
                 case GlobalConstants.REWARD_GOLD:
+                    _audioManager.PlayLuckySpinRewardCardSound();
                     _cardAnimator.StartCardAnimation(currentRewardValue,_goldIcon,_goldCardText,false);
                     break;
                 case GlobalConstants.REWARD_LOST_SPIN:
+                    _audioManager.PlayLuckySpinLooseRewardSound();
                     _cardAnimator.StartCardAnimation(currentRewardValue,_skullIcon,_skullCardText,true);
                     break; 
                 case GlobalConstants.REWARD_HEALTH:
+                    _audioManager.PlayLuckySpinRewardCardSound();
                     _cardAnimator.StartCardAnimation(currentRewardValue,_healthIcon,_healthCardText,false);
                     break;
                 case GlobalConstants.REWARD_SURPRISE:
+                    _audioManager.PlayLuckySpinRewardCardSound();
                     _cardAnimator.StartCardAnimation(currentRewardValue,_surpriseIcon,_surpriseCardText,false);
                     break;
             }

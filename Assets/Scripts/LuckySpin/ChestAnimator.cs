@@ -16,7 +16,9 @@ namespace Resources.Scripts.LuckySpin
         [SerializeField] private TextMeshProUGUI _diamond;
         [SerializeField] private TextMeshProUGUI _health;
         [SerializeField] private TextMeshProUGUI _surprise;
+        [SerializeField] private AudioManager _audioManager;
 
+        
         private Animator _animator;
         
         private static readonly int IsSpinEnded = Animator.StringToHash("isSpinEnded");
@@ -41,8 +43,9 @@ namespace Resources.Scripts.LuckySpin
         public void ActivateOpenChest()
         {
             _animator.SetTrigger(OpenChest);
+            _audioManager.PlayLuckySpinOpenChestSound();
         }
-        
+
         public void ResetChest()
         {
             _blackBackground.enabled = false;

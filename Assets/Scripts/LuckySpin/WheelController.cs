@@ -16,6 +16,7 @@ namespace Resources.Scripts.LuckySpin
         [SerializeField] private float _spinDuration = 5f;
         [SerializeField] private float _speedDuration = 10f;
         [SerializeField] private ParticleSystem _wheelHighLight;
+        [SerializeField] private AudioManager _audioManager;
         
         private static readonly int PushedSpinButton = Animator.StringToHash("PushedSpinButton");
 
@@ -42,17 +43,18 @@ namespace Resources.Scripts.LuckySpin
             
             DisableColliderRewards();
             _spinButton.interactable = false;
-            
+
             _animatorSpinsCoin.SetTrigger(PushedSpinButton);
             
             StartCoroutine(RotationWheel());
             
-            StopCoroutine(RotationWheel());
             _wheelHighLight.Stop();
         }
         
         private IEnumerator RotationWheel()
         {
+            _audioManager.PlayWheelRotationSound();
+            
             _wheelHighLight.Play();
             
             var startRotation = _playBoard.rotation.eulerAngles.z; 
@@ -67,6 +69,8 @@ namespace Resources.Scripts.LuckySpin
             }
             
             EnableColliderForRewardsSelected();
+            
+            _audioManager.StopWheelRotationSound();
             
             yield return new WaitForSeconds(2f);
             

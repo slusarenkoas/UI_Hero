@@ -1,7 +1,8 @@
 using System;
+using Resources.Scripts.LuckySpin;
 using UnityEngine;
 
-namespace Resources.Scripts.LuckySpin
+namespace LuckySpin
 {
     public class SelectController : MonoBehaviour
     {
@@ -14,23 +15,28 @@ namespace Resources.Scripts.LuckySpin
         private void Start()
         {
             _collider = GetComponent<Collider>();
+
+            _luckySpinController.StartRotation += SetStatusRewardUnSelected;
+        }
+        
+        private void OnDestroy()
+        {
+            _luckySpinController.StartRotation -= SetStatusRewardUnSelected;
         }
 
+        private void SetStatusRewardUnSelected()
+        {
+            _collider.enabled = true;
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
-            if (_luckySpinController.HasSpins())
-            {
-                _collider.enabled = true;
-            }
-            
+
             if (other.gameObject.TryGetComponent(typeof(LuckySpinReward),out var reward))
             {
                 CurrentRewards = (LuckySpinReward)reward;
                 RewardSelected?.Invoke();
-            }
-            
-            if (!_luckySpinController.HasSpins())
-            {
+                
                 _collider.enabled = false;
             }
         }

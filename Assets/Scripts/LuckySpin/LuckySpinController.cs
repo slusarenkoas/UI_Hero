@@ -1,4 +1,5 @@
 using System;
+using LuckySpin;
 using UnityEngine;
 
 namespace Resources.Scripts.LuckySpin

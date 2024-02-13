@@ -1,9 +1,10 @@
 using System;
 using Resources.Scripts.Heroes;
 using Resources.Scripts.LuckySpin;
+using Resources.Scripts.Views;
 using UnityEngine;
 
-namespace Resources.Scripts.Views
+namespace Views
 {
     public class LobbyView : MonoBehaviour
     {

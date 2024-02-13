@@ -1,6 +1,7 @@
 using Resources.Scripts.Heroes;
 using Resources.Scripts.Views;
 using UnityEngine;
+using Views;
 
 namespace Resources.Scripts
 {
@@ -9,9 +10,9 @@ namespace Resources.Scripts
     {
         [SerializeField] private HeroesManager _heroesManager;
         [SerializeField] private LobbyView _lobbyView;
-        [SerializeField] private HeroSettings _heroSettings;
+         [SerializeField] private HeroSettings _heroSettings;
 
-        private void Awake()
+         private void Awake()
         {
             _heroesManager.Initialize(_heroSettings);
             _lobbyView.Initialize(_heroesManager);
