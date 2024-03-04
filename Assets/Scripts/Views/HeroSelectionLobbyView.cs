@@ -1,10 +1,10 @@
 using System;
-using Resources.Scripts.Heroes;
+using Heroes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Resources.Scripts.Views
+namespace Views
 {
     public class HeroSelectionLobbyView : MonoBehaviour
     {

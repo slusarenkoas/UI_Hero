@@ -1,9 +1,8 @@
-using Resources.Scripts.Views;
 using TMPro;
 using UnityEngine;
 using Views;
 
-namespace Resources.Scripts.LuckySpin
+namespace LuckySpin
 {
     public class LuckySpinView : MonoBehaviour
     {
@@ -25,7 +24,7 @@ namespace Resources.Scripts.LuckySpin
         
         private void SetSpinsValue()
         {
-            _spins.text ="x" +  _luckySpinController.Spins;
+            _spins.text ="x" +  _luckySpinController.ReturnCurrentSpin();
         }
     }
 }

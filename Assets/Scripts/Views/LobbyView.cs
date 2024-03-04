@@ -1,7 +1,6 @@
 using System;
-using Resources.Scripts.Heroes;
-using Resources.Scripts.LuckySpin;
-using Resources.Scripts.Views;
+using Heroes;
+using LuckySpin;
 using UnityEngine;
 
 namespace Views

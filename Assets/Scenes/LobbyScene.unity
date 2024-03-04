@@ -1729,6 +1729,7 @@ GameObject:
   - component: {fileID: 284049371}
   - component: {fileID: 284049369}
   - component: {fileID: 284049370}
+  - component: {fileID: 284049372}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1781,8 +1782,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768d50a83bdcf1944812d1fc522d0535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Gold>k__BackingField: 20000
-  <Diamond>k__BackingField: 20
+  _startGold: 20000
+  _startDiamond: 10
+  _startSpins: 3
   _luckySpinChest: {fileID: 995321539}
 --- !u!114 &284049371
 MonoBehaviour:
@@ -1799,6 +1801,20 @@ MonoBehaviour:
   _heroesManager: {fileID: 1951889983}
   _lobbyView: {fileID: 1032340018}
   _heroSettings: {fileID: 284049369}
+  _currencyManager: {fileID: 284049370}
+  _saveManager: {fileID: 284049372}
+--- !u!114 &284049372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284049364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee420b2c5e6464a9041de9e546298c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &285540924
 GameObject:
   m_ObjectHideFlags: 0
@@ -14105,51 +14121,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5444052488008767246, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5444052488008767246, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5444052488008767246, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 402.75812
       objectReference: {fileID: 0}
     - target: {fileID: 5444052488008767246, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.8277
       objectReference: {fileID: 0}
     - target: {fileID: 7582005436880788902, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7582005436880788902, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7582005436880788902, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 132.73079
       objectReference: {fileID: 0}
     - target: {fileID: 7582005436880788902, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.827705
       objectReference: {fileID: 0}
     - target: {fileID: 8265346734802060778, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8265346734802060778, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8265346734802060778, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 619.99634
       objectReference: {fileID: 0}
     - target: {fileID: 8265346734802060778, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.8277
       objectReference: {fileID: 0}
     - target: {fileID: 8625427945665089830, guid: c687e885ebb84a44099fe3d715f3776f, type: 3}
       propertyPath: m_Name
@@ -25419,6 +25435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _luckySpinController: {fileID: 1907357075}
   _chestAnimator: {fileID: 120260237}
+  _saveManager: {fileID: 284049372}
 --- !u!1 &995511581
 GameObject:
   m_ObjectHideFlags: 0
@@ -41862,7 +41879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1907357073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41917,7 +41934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c354a5cc5482d54396ede4be1d3d811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Spins>k__BackingField: 3
   <RewardHealth>k__BackingField: 1
   <RewardGold>k__BackingField: 100
   <RewardDiamond>k__BackingField: 10

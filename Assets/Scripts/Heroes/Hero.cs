@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Resources.Scripts.Heroes
+namespace Heroes
 {
     public class Hero : MonoBehaviour
     {
-        public bool IsHeroBought { get; set; }
+        [field:SerializeField] public bool IsHeroBought { get; set; }
         [field:SerializeField] public float Health { get; private set; }
         [field:SerializeField] public float Attack { get; private set; }
         [field:SerializeField] public float Defense { get; private set; }
@@ -31,7 +31,6 @@ namespace Resources.Scripts.Heroes
             ClassType = _heroSettings.GetClassName(heroName);
             ClassIcon = _heroSettings.GetClassIcon(heroName);
             HeroPrice = _heroSettings.GetHeroPrice(heroName);
-            IsHeroBought = _heroSettings.GetHeroActivatedInformation(heroName);
             PlayerName = _heroSettings.GetPlayerName(heroName);
         }
     }

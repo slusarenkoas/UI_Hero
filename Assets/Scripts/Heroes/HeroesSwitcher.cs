@@ -1,8 +1,8 @@
-using Resources.Scripts.Currency;
-using Resources.Scripts.Views;
+using Currency;
 using UnityEngine;
+using Views;
 
-namespace Resources.Scripts.Heroes
+namespace Heroes
 {
     public class HeroesSwitcher : MonoBehaviour
     {
@@ -15,10 +15,11 @@ namespace Resources.Scripts.Heroes
         private Hero[] _heroes;
         private int _indexChosenHero;
         
-        public void Initialize(Hero[] heroes, Hero activeHero)
+        public void Initialize(Hero[] heroes, Hero activeHero, int indexActiveHero)
         {
             _heroes = heroes;
             CurrentHeroInSelectionLobby = activeHero;
+            _indexChosenHero = indexActiveHero;
 
             _heroSelectionLobbyView.SelectHeroOnLobbyController += SetActiveHero;
             _heroSelectionLobbyView.ExitFromSelectionLobbyController += ResetCurrentHero;
@@ -33,8 +34,8 @@ namespace Resources.Scripts.Heroes
             {
                 return false;
             }
-            
-            CurrentHeroInSelectionLobby.IsHeroBought = true;
+
+            _heroesManager.SetBoughtStatusCurrentHero(_indexChosenHero);
 
             return true;
         }

@@ -1,9 +1,8 @@
-﻿using Resources.Scripts.Views;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Views;
 
-namespace Resources.Scripts.Currency
+namespace Currency
 {
     public class CurrencyView : MonoBehaviour
     {
@@ -30,8 +29,8 @@ namespace Resources.Scripts.Currency
 
         private void SetCurrencyValue()
         {
-            _gold.text = _currencyManager.Gold.ToString();
-            _diamond.text = _currencyManager.Diamond.ToString();
+            _gold.text = _currencyManager.ReturnCurrentGold().ToString();
+            _diamond.text = _currencyManager.ReturnCurrentDiamond().ToString();
         }
         
     }

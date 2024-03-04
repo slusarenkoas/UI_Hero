@@ -1,5 +1,5 @@
-using Resources.Scripts.Heroes;
-using Resources.Scripts.LuckySpin;
+using Heroes;
+using LuckySpin;
 using TMPro;
 using UnityEngine;
 

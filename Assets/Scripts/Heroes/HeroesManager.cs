@@ -1,6 +1,8 @@
+using System.Collections.Generic;
+using Resources.Scripts;
 using UnityEngine;
 
-namespace Resources.Scripts.Heroes
+namespace Heroes
 {
     public class HeroesManager : MonoBehaviour
     {
@@ -10,26 +12,87 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private HeroesSwitcher _heroesSwitcher;
         
         private HeroSettings _heroSettings;
-        private int _indexChosenHero;
-        
+        private int _indexActiveHero;
+
+        private readonly List<string> _boughtHeroes = new();
+
         public void Initialize (HeroSettings heroSettings)
         {
             _heroSettings = heroSettings;
 
-            foreach (var hero in _heroes)
-            {
-                hero.Initialize(_heroSettings);
-            }
-
-            if (_heroes == null) return;
-            ActiveHero = _heroes[0];
+            LoadActiveHero();
+            SetBoughtStatusHeroes();
             
-            _heroesSwitcher.Initialize(_heroes,ActiveHero);
+            _heroesSwitcher.Initialize(_heroes,ActiveHero,_indexActiveHero);
+        }
+
+        private void LoadActiveHero()
+        {
+            if (_heroes == null) return;
+            
+            var activeHero = PrefsManager.LoadActiveHero();
+
+            for (var index = 0; index < _heroes.Length; index++)
+            {
+                var hero = _heroes[index];
+                hero.Initialize(_heroSettings);
+
+                if (activeHero == hero.name)
+                {
+                    ActiveHero = hero;
+                    _indexActiveHero = index;
+                }
+
+                if (activeHero == null)
+                {
+                    ActiveHero = _heroes[0];
+                    _indexActiveHero = 0;
+                }
+            }
+        }
+
+        private void SetBoughtStatusHeroes()
+        {
+            if (_boughtHeroes.Count == 0)
+            {
+                _boughtHeroes?.Add(GlobalConstants.NO_WEAPON);
+                PrefsManager.SaveBoughtHero(_boughtHeroes);
+            }
+            
+            var boughtHeroesString = PrefsManager.LoadBoughtHeroes();
+            
+            if (!string.IsNullOrEmpty(boughtHeroesString))
+            {
+                var boughtHeroes = boughtHeroesString.Split(',');
+                _boughtHeroes.AddRange(boughtHeroes);
+            }
+            
+            if (_heroes != null)
+            {
+                foreach (var hero in _heroes)
+                {
+                    var isBought = _boughtHeroes.Contains(hero.name);
+                    hero.IsHeroBought = isBought;
+                }
+            }
         }
         
         public void SetNewActiveHero(Hero newHero)
         {
             ActiveHero = newHero;
+            
+            PrefsManager.SaveActiveHero(ActiveHero.name);
+        }
+
+        public void SetBoughtStatusCurrentHero(int indexChosenHero)
+        {
+            _heroes[indexChosenHero].IsHeroBought = true;
+            
+            if (!_boughtHeroes.Contains(_heroes[indexChosenHero].name))
+            {
+                _boughtHeroes.Add(_heroes[indexChosenHero].name);
+                PrefsManager.SaveBoughtHero(_boughtHeroes);
+            }
         }
     }
 }

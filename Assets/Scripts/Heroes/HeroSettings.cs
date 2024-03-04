@@ -1,6 +1,7 @@
+using Resources.Scripts;
 using UnityEngine;
 
-namespace Resources.Scripts.Heroes
+namespace Heroes
 {
     public class HeroSettings : MonoBehaviour
     {
@@ -12,10 +13,10 @@ namespace Resources.Scripts.Heroes
         [SerializeField] private float _mediumMultiplier = 0.6f;
         [SerializeField] private float _highMultiplier = 1f;
         
-        private float _health = 100f;
-        private float _attack = 100f;
-        private float _defense = 100f;
-        private float _speed = 100f;
+        private readonly float _health = 100f;
+        private readonly float _attack = 100f;
+        private readonly float _defense = 100f;
+        private readonly float _speed = 100f;
         
         private enum PriceForHero
         {
@@ -123,15 +124,6 @@ namespace Resources.Scripts.Heroes
                 GlobalConstants.SWORD_SHIELD => (int)PriceForHero.SwordShield,
                 GlobalConstants.TWO_HANDS_SWORD => (int)PriceForHero.TwoHandsSword,
                 _ => 0
-            };
-        }
-
-        public bool GetHeroActivatedInformation(string heroName)
-        {
-            return heroName switch
-            {
-                GlobalConstants.NO_WEAPON => true,
-                _ => false
             };
         }
 
