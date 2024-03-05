@@ -11,6 +11,7 @@ namespace Views
         [SerializeField] private GameObject _luckySpinButton;
         [SerializeField] private LuckySpinController _luckySpinController;
         
+        
         private HeroesManager _heroesManager;
 
         public void Initialize(HeroesManager heroesManager)

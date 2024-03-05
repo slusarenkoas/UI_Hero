@@ -11,6 +11,9 @@ namespace Heroes
         [SerializeField] private Hero[] _heroes;
         [SerializeField] private HeroesSwitcher _heroesSwitcher;
         
+        [SerializeField] private GameObject _activeHeroContainer;
+        [SerializeField] private GameObject _listHeroesContainer;
+        
         private HeroSettings _heroSettings;
         private int _indexActiveHero;
 
@@ -49,29 +52,30 @@ namespace Heroes
                     _indexActiveHero = 0;
                 }
             }
+            
+            DontDestroyOnLoad(_activeHeroContainer);
+            ActiveHero.transform.parent = _activeHeroContainer.transform;
         }
 
         private void SetBoughtStatusHeroes()
         {
-            if (_boughtHeroes.Count == 0)
+            var boughtHeroesString = PrefsManager.LoadBoughtHeroes();
+
+            if (string.IsNullOrEmpty(boughtHeroesString))
             {
                 _boughtHeroes?.Add(GlobalConstants.NO_WEAPON);
                 PrefsManager.SaveBoughtHero(_boughtHeroes);
+                boughtHeroesString = PrefsManager.LoadBoughtHeroes();
             }
             
-            var boughtHeroesString = PrefsManager.LoadBoughtHeroes();
-            
-            if (!string.IsNullOrEmpty(boughtHeroesString))
-            {
-                var boughtHeroes = boughtHeroesString.Split(',');
-                _boughtHeroes.AddRange(boughtHeroes);
-            }
-            
+            var boughtHeroes = boughtHeroesString.Split(',');
+            _boughtHeroes.AddRange(boughtHeroes);
+
             if (_heroes != null)
             {
                 foreach (var hero in _heroes)
                 {
-                    var isBought = _boughtHeroes.Contains(hero.name);
+                    var isBought = _boughtHeroes != null && _boughtHeroes.Contains(hero.name);
                     hero.IsHeroBought = isBought;
                 }
             }
@@ -79,7 +83,11 @@ namespace Heroes
         
         public void SetNewActiveHero(Hero newHero)
         {
+            ActiveHero.transform.parent = _listHeroesContainer.transform;
+            
             ActiveHero = newHero;
+            
+            ActiveHero.transform.parent = _activeHeroContainer.transform;
             
             PrefsManager.SaveActiveHero(ActiveHero.name);
         }
