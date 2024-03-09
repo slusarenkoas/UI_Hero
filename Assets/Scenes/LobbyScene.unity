@@ -1802,7 +1802,6 @@ MonoBehaviour:
   _lobbyView: {fileID: 1032340018}
   _heroSettings: {fileID: 284049369}
   _currencyManager: {fileID: 284049370}
-  _saveManager: {fileID: 284049372}
 --- !u!114 &284049372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26310,7 +26309,7 @@ Transform:
   m_GameObject: {fileID: 1120756793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.615402, y: -25.270638, z: -17.250866}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
