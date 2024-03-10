@@ -403,14 +403,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TwoHandsSword
       objectReference: {fileID: 0}
-    - target: {fileID: 1789570279280792, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1789570279280792, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
-      propertyPath: m_TagString
-      value: Hero
-      objectReference: {fileID: 0}
     - target: {fileID: 4915247174103650, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -454,10 +446,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1789570279280792, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1849219162}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
 --- !u!1 &57027910
 GameObject:
@@ -769,11 +758,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &94787060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1126199400621232, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
-  m_PrefabInstance: {fileID: 1272683251}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &120260232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,11 +2879,6 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7543759339982190688, guid: f583e1742dcc36c458be0f3a37a5e997, type: 3}
   m_PrefabInstance: {fileID: 422114839}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &446653776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
-  m_PrefabInstance: {fileID: 942908850}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &448085350
 GameObject:
@@ -20304,21 +20283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NoWeapon
       objectReference: {fileID: 0}
-    - target: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
-      propertyPath: m_TagString
-      value: Hero
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4631963978777973039, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2086988895}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
 --- !u!1 &983747150
 GameObject:
@@ -25349,11 +25317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990532635}
   m_CullTransparentMesh: 1
---- !u!1 &991530075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1789570279280792, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
-  m_PrefabInstance: {fileID: 23554486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994899948
 GameObject:
   m_ObjectHideFlags: 0
@@ -26284,37 +26247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1120756793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1120756794}
-  m_Layer: 0
-  m_Name: ActiveHeroContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1120756794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120756793}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131907421
 GameObject:
   m_ObjectHideFlags: 0
@@ -27767,63 +27699,33 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1255071530 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1911315358635904, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
+--- !u!114 &1255071532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7652293755793293456, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
   m_PrefabInstance: {fileID: 1674340533}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1255071532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255071530}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!224 &1264449235 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7840865460743334890, guid: bac0f692de2541243b9831c837f20c71, type: 3}
   m_PrefabInstance: {fileID: 473653985}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1271319599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1938047842842718, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
+--- !u!114 &1271319601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 777663839852030777, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
   m_PrefabInstance: {fileID: 1499238641}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1271319601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271319599}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!1001 &1272683251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27835,14 +27737,6 @@ PrefabInstance:
     - target: {fileID: 1126199400621232, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
       propertyPath: m_Name
       value: SwordShield
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126199400621232, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126199400621232, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
-      propertyPath: m_TagString
-      value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 4802723580168454, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27887,10 +27781,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1126199400621232, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1597684772}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
 --- !u!1001 &1272784112
 PrefabInstance:
@@ -34428,32 +34319,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1484003691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1968433030019078, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
+--- !u!114 &1484003693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2497693258295257407, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
   m_PrefabInstance: {fileID: 1953760229}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1484003693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484003691}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!1001 &1499238641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34465,14 +34341,6 @@ PrefabInstance:
     - target: {fileID: 1938047842842718, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
       propertyPath: m_Name
       value: DoubleSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938047842842718, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938047842842718, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
-      propertyPath: m_TagString
-      value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 4898695792458526, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34517,10 +34385,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1938047842842718, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1271319601}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43a414ef8c04124b94fc653e5fd713b, type: 3}
 --- !u!1 &1501395193
 GameObject:
@@ -35954,27 +35819,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4802723580168454, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
   m_PrefabInstance: {fileID: 1272683251}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1597684772
+--- !u!114 &1597684772 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2503498304098744202, guid: e886514e9250e7a418a0dd0bfb9673b1, type: 3}
+  m_PrefabInstance: {fileID: 1272683251}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94787060}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!1 &1600830432
 GameObject:
   m_ObjectHideFlags: 0
@@ -36287,14 +36142,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow
       objectReference: {fileID: 0}
-    - target: {fileID: 1911315358635904, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911315358635904, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
-      propertyPath: m_TagString
-      value: Hero
-      objectReference: {fileID: 0}
     - target: {fileID: 4846162242589798, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36338,10 +36185,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1911315358635904, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1255071532}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0462945a75b007c459ba1a3bcf18cacc, type: 3}
 --- !u!224 &1679502087 stripped
 RectTransform:
@@ -41775,27 +41619,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4915247174103650, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
   m_PrefabInstance: {fileID: 23554486}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1849219162
+--- !u!114 &1849219162 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 929518222728977896, guid: 056f556e83717d945b2b7303930ae56c, type: 3}
+  m_PrefabInstance: {fileID: 23554486}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991530075}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!1 &1866591786
 GameObject:
   m_ObjectHideFlags: 0
@@ -42095,7 +41929,6 @@ MonoBehaviour:
   - {fileID: 1597684772}
   - {fileID: 1849219162}
   _heroesSwitcher: {fileID: 1951889984}
-  _activeHeroContainer: {fileID: 1120756793}
   _listHeroesContainer: {fileID: 1951889981}
 --- !u!114 &1951889984
 MonoBehaviour:
@@ -42123,10 +41956,6 @@ PrefabInstance:
     - target: {fileID: 1968433030019078, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
       propertyPath: m_Name
       value: MagicWand
-      objectReference: {fileID: 0}
-    - target: {fileID: 1968433030019078, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
-      propertyPath: m_TagString
-      value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 4736350825704954, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42171,10 +42000,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1968433030019078, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1484003693}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9cc8fa955a1bb145ac83117c772c5f7, type: 3}
 --- !u!1 &1990685536
 GameObject:
@@ -47628,27 +47454,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4630395971456208431, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
   m_PrefabInstance: {fileID: 942908850}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2086988895
+--- !u!114 &2086988895 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 408165042605718333, guid: 9751d0696c1ee4d8a957f177f49f1806, type: 3}
+  m_PrefabInstance: {fileID: 942908850}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446653776}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a67f25fa6b2043c8b7c15bded0b7d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <IsHeroBought>k__BackingField: 0
-  <Health>k__BackingField: 0
-  <Attack>k__BackingField: 0
-  <Defense>k__BackingField: 0
-  <Speed>k__BackingField: 0
-  <ClassType>k__BackingField: 
-  <ClassIcon>k__BackingField: {fileID: 0}
-  <HeroPrice>k__BackingField: 0
-  <PlayerName>k__BackingField: 
 --- !u!1 &2121826091
 GameObject:
   m_ObjectHideFlags: 0
@@ -66150,4 +65966,3 @@ SceneRoots:
   - {fileID: 1884853800}
   - {fileID: 1514923093}
   - {fileID: 544498358}
-  - {fileID: 1120756794}
