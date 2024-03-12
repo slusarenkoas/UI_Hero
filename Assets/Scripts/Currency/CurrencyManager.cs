@@ -1,5 +1,4 @@
 using System;
-using LuckySpin;
 using LuckySpin.Chest;
 using UnityEngine;
 
@@ -14,24 +13,28 @@ namespace Currency
         [SerializeField] private int _startSpins;
         [SerializeField] private ChestController _luckySpinChest;
 
+        private int _currentGold;
+        private int _currentDiamond;
+        
         public void Initialize()
         {
             PrefsManager.SaveStartCurrency(_startGold, _startDiamond, _startSpins);
-
+            
+            _currentGold = PrefsManager.LoadGold();
+            _currentDiamond = PrefsManager.LoadDiamond();
+            
             _luckySpinChest.TookRewards += SetRewardCurrency;
         }
 
         public bool TryBuyCurrentHero(int priceForHero)
         {
-            var currentGold = PrefsManager.LoadGold();
-
-            if (priceForHero > currentGold)
+            if (priceForHero > _currentGold)
             {
                 return false;
             }
 
-            currentGold -= priceForHero;
-            PrefsManager.SaveGold(currentGold);
+            _currentGold -= priceForHero;
+            PrefsManager.SaveGold(_currentGold);
 
             ValueChanged?.Invoke();
             return true;
@@ -39,12 +42,12 @@ namespace Currency
 
         public int ReturnCurrentGold()
         {
-            return PrefsManager.LoadGold();
+            return _currentGold;
         }
 
         public int ReturnCurrentDiamond()
         {
-            return PrefsManager.LoadDiamond();
+            return _currentDiamond;
         }
 
         private void OnDestroy()
@@ -54,14 +57,11 @@ namespace Currency
 
         private void SetRewardCurrency(int gold, int diamond)
         {
-            var currentDiamond = PrefsManager.LoadDiamond();
-            var currentGold = PrefsManager.LoadGold();
+            _currentDiamond += diamond;
+            _currentGold += gold;
 
-            currentDiamond += diamond;
-            currentGold += gold;
-
-            PrefsManager.SaveDiamond(currentDiamond);
-            PrefsManager.SaveGold(currentGold);
+            PrefsManager.SaveDiamond(_currentDiamond);
+            PrefsManager.SaveGold(_currentGold);
 
             ValueChanged?.Invoke();
         }

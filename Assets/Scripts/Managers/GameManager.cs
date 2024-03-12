@@ -15,7 +15,6 @@ namespace Managers
 
         private void Start()
         {
-            //p
             _currencyManager.Initialize();
             _heroesManager.Initialize(_heroSettings);
             _lobbyView.Initialize(_heroesManager);

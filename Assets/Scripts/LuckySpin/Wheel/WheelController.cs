@@ -25,8 +25,10 @@ namespace LuckySpin.Wheel
             foreach (var luckySpinReward in _rewards)
             {
                 luckySpinReward.Initialize(_luckySpinController.RewardGold,
-                    _luckySpinController.RewardHealth,
-                    _luckySpinController.RewardDiamond);
+                    _luckySpinController.RewardDiamond); 
+                //luckySpinReward.Initialize(_luckySpinController.RewardGold,
+                //    _luckySpinController.RewardHealth,
+                //    _luckySpinController.RewardDiamond);
             }
             
             _luckySpinController.StartRotation += StartRotateWheel;

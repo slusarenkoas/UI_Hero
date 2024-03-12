@@ -8,8 +8,6 @@ namespace GameScene
         private NavMeshAgent _navMeshAgent;
         private Vector3 _targetPosition;
         private Animator _animator;
-        
-        private bool _isMoving;
         private Camera _camera;
         
         private static readonly int Idle = Animator.StringToHash("Idle");
