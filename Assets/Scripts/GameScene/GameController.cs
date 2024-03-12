@@ -17,11 +17,8 @@ namespace GameScene
         private void Awake()
         {
             _hero = FindObjectOfType<Hero>();
+            
             SetHeroComponent();
-        }
-
-        private void Start()
-        {
             MoveHeroOnScene();
             
             _camera.Initialize(_hero);
@@ -35,13 +32,17 @@ namespace GameScene
 
         private void MoveHeroOnScene()
         {
-            _hero.AddComponent<NavMeshAgent>();
+            var navMeshAgent = _hero.AddComponent<NavMeshAgent>();
             var inputController = _hero.AddComponent<InputController>();
+            var animator = _hero.GetComponent<Animator>();
+            var movementController = _hero.AddComponent<MovementController>();
+            var animatorController = _hero.AddComponent<AnimatorController>();
+            
+            movementController.Initialize(navMeshAgent,inputController,animator,animatorController);
+            
             
             _hero.transform.position = _startPosition.position;
             _hero.transform.rotation = _startPosition.rotation;
-            
-            inputController.Initialize();
 
         }
     }
