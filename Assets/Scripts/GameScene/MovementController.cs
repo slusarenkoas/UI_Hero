@@ -15,6 +15,7 @@ namespace GameScene
         private Camera _camera;
         private InputController _inputController;
         private AnimatorController _animatorController;
+        private bool _isMoving;
 
         public void Initialize (NavMeshAgent navMeshAgent,InputController inputController,Animator animator,AnimatorController animatorController)
         {
@@ -28,19 +29,33 @@ namespace GameScene
             _animatorController.Initialize(animator,this);
         }
 
+        private void Update()
+        {
+            if (!_isMoving)
+            {
+                return;
+            }
+            
+            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.pathPending)
+            {
+                EnableIdleState?.Invoke();
+                _isMoving = false;
+            }
+        }
+
         private void Move()
         {
+            if (_isMoving)
+            {
+                EnableIdleState?.Invoke();
+            }
+            
             if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hit)) 
             {
                 _targetPosition = hit.point;
                 _navMeshAgent.SetDestination(_targetPosition);
                 EnableMovingState?.Invoke();
-                
-            }
-
-            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
-            {
-                EnableIdleState?.Invoke();
+                _isMoving = true;
             }
         }
         

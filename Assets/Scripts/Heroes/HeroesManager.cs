@@ -10,8 +10,6 @@ namespace Heroes
         
         [SerializeField] private Hero[] _heroes;
         [SerializeField] private HeroesSwitcher _heroesSwitcher;
-        
-        //[SerializeField] private GameObject _activeHeroContainer;
         [SerializeField] private GameObject _listHeroesContainer;
         
         private HeroSettings _heroSettings;
@@ -54,7 +52,6 @@ namespace Heroes
             }
             ActiveHero.transform.parent = null;
             DontDestroyOnLoad(ActiveHero);
-            //ActiveHero.transform.parent = _activeHeroContainer.transform;
         }
 
         private void SetBoughtStatusHeroes()
@@ -88,8 +85,6 @@ namespace Heroes
             ActiveHero = newHero;
             ActiveHero.transform.parent = null;
             DontDestroyOnLoad(ActiveHero);
-            
-            //ActiveHero.transform.parent = _heroesSwitcher.transform;
             
             PrefsManager.SaveActiveHero(ActiveHero.name);
         }
