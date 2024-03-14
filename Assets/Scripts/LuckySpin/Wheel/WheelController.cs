@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -25,10 +26,7 @@ namespace LuckySpin.Wheel
             foreach (var luckySpinReward in _rewards)
             {
                 luckySpinReward.Initialize(_luckySpinController.RewardGold,
-                    _luckySpinController.RewardDiamond); 
-                //luckySpinReward.Initialize(_luckySpinController.RewardGold,
-                //    _luckySpinController.RewardHealth,
-                //    _luckySpinController.RewardDiamond);
+                    _luckySpinController.RewardDiamond);
             }
             
             _luckySpinController.StartRotation += StartRotateWheel;

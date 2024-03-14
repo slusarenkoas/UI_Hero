@@ -1,6 +1,7 @@
 using System;
 using LuckySpin.Chest;
 using LuckySpin.Wheel;
+using Managers;
 using UnityEngine;
 
 namespace LuckySpin
@@ -8,7 +9,6 @@ namespace LuckySpin
     public class LuckySpinController : MonoBehaviour
     {
         public event Action StartRotation;
-        //[field:SerializeField] public int RewardHealth { get; private set; }
         [field:SerializeField] public int RewardGold { get; private set; }
         [field:SerializeField] public int RewardDiamond { get; private set; }
 

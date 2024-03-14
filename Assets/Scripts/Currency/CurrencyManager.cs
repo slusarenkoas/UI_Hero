@@ -1,5 +1,6 @@
 using System;
 using LuckySpin.Chest;
+using Managers;
 using UnityEngine;
 
 namespace Currency

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Resources.Scripts;
+using Managers;
 using UnityEngine;
 
 namespace Heroes

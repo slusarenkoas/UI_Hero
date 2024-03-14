@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+// ReSharper disable InconsistentNaming
 
 namespace Managers
 {
@@ -21,12 +22,14 @@ namespace Managers
             var binaryFormatter = new BinaryFormatter();
             var file = File.Create(_dataPath);
 
-            var data = new SaveData();
-            data.ChestGoldAward = goldAward;
-            data.ChestDiamondAward = diamondAward;
-            data.ChestHealthAward = healthAward;
-            data.ChestSurpriseAward = surpriseAward;
-        
+            var data = new SaveData
+            {
+                ChestGoldAward = goldAward,
+                ChestDiamondAward = diamondAward,
+                ChestHealthAward = healthAward,
+                ChestSurpriseAward = surpriseAward
+            };
+
             binaryFormatter.Serialize(file,data);
             file.Close();
         }

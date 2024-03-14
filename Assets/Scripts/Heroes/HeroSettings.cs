@@ -1,4 +1,3 @@
-using Resources.Scripts;
 using UnityEngine;
 
 namespace Heroes

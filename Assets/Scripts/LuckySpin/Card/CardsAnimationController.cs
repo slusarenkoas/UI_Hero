@@ -1,5 +1,5 @@
 using LuckySpin.Wheel;
-using Resources.Scripts;
+using Managers;
 using UnityEngine;
 
 namespace LuckySpin.Card
