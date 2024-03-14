@@ -8,14 +8,13 @@ namespace LuckySpin
         public int RewardValue { get; private set; }
         private Collider _collider;
 
-        public void Initialize(int rewardGold, int rewardHealth, int rewardDiamond)
+        public void Initialize(int rewardGold, int rewardDiamond)
         {
             _collider = GetComponent<Collider>();
             
             RewardValue = gameObject.tag switch
             {
                 GlobalConstants.REWARD_GOLD => rewardGold,
-                GlobalConstants.REWARD_HEALTH => rewardHealth,
                 GlobalConstants.REWARD_DIAMOND => rewardDiamond,
                 _ => 0
             };

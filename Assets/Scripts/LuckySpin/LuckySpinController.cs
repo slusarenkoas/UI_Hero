@@ -8,9 +8,9 @@ namespace LuckySpin
     public class LuckySpinController : MonoBehaviour
     {
         public event Action StartRotation;
-        [field:SerializeField] public int RewardHealth { get;  }
-        [field:SerializeField] public int RewardGold { get;  }
-        [field:SerializeField] public int RewardDiamond { get;  }
+        //[field:SerializeField] public int RewardHealth { get; private set; }
+        [field:SerializeField] public int RewardGold { get; private set; }
+        [field:SerializeField] public int RewardDiamond { get; private set; }
 
         [SerializeField] private SelectController _selectController;
         [SerializeField] private ChestController _chest;

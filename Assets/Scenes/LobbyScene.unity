@@ -41847,6 +41847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c354a5cc5482d54396ede4be1d3d811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <RewardGold>k__BackingField: 100
+  <RewardDiamond>k__BackingField: 10
   _selectController: {fileID: 1059934752}
   _chest: {fileID: 995321539}
 --- !u!114 &1907357076
