@@ -15,6 +15,12 @@ In this project the following tasks were realized:
 - Worked with Particle System
 GameDev Academy project
 
+![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Unity_NsARRWvqOw.gif)
+
+![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Unity_nAH9uuvE1j.gif)
+
+![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Unity_nSzumJ373Z.gif)
+
 ![](https://github.com/slusarenkoas/UI_Hero/blob/main/Assets/Resources/GitMaterial/Task.gif)
 
 Result:
